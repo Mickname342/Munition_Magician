@@ -15,7 +15,7 @@ public class Shooting : MonoBehaviour
 
     public float bulletforce = 20f;
     float timeLastShot = 0f;
-    float delayBetweenShots = 0.17f;
+    float delayBetweenShots = 0.2f;
     float timeLastBullet = 0f;
     int bullets = 12;
     bool fire = true;
@@ -28,7 +28,7 @@ public class Shooting : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > timeLastBullet + delayBetweenShots)
         {
             ShootSpecial();
         }
@@ -68,7 +68,7 @@ public class Shooting : MonoBehaviour
         timeLastBullet = Time.time;
         GameObject bullet = Instantiate(bulletPrefab2, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.right * bulletforce/3, ForceMode2D.Impulse);
+        rb.AddForce(firepoint.right * bulletforce/4, ForceMode2D.Impulse);
     }
 
     public void reloadBullets()

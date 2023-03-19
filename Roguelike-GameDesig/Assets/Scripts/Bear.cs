@@ -6,8 +6,8 @@ using Pathfinding;
 
 public class Bear : MonoBehaviour
 {
-    public int hp = 3;
-    public int maxHp = 3;
+    public int hp = 10;
+    public int maxHp = 10;
     public Transform hpBar;
     public UnityEvent activate;
     public UnityEvent dead;
@@ -21,14 +21,22 @@ public class Bear : MonoBehaviour
     private void Start()
     {
         random = Random.Range(0,10);
-        hpBar.localScale = new Vector2(maxHp, 1);
+        hpBar.localScale = new Vector2(maxHp/5, 1);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (!collision.gameObject.CompareTag("Player"))
         {
-            hp--;
-            hpBar.localScale = new Vector2(hpBar.localScale.x - 1, 1);
+            if (collision.gameObject.CompareTag("DoubleDamage"))
+            {
+                hp = hp - 4;
+                hpBar.localScale = new Vector2(hpBar.localScale.x - 1/5f * 4f, 1);
+            }
+            else
+            {
+                hp--;
+                hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
+            }
         }
     }
 
