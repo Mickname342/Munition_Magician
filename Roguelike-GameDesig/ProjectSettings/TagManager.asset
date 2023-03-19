@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - DoubleDamage
   - Wind
+  - GroundBullet
   layers:
   - Default
   - TransparentFX

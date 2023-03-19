@@ -280,3 +280,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1603010498226723205, guid: adaae6a6de10bc14996e7ba973b2c690, type: 3}
   wind: {fileID: 8970093613790968897, guid: 47b4c87bdfec8f64097a8b6ab462b56f, type: 3}
+  barrier: {fileID: 1636614760209261313, guid: 4df5b7ca330b6284b89554e6ab3a8bb0, type: 3}

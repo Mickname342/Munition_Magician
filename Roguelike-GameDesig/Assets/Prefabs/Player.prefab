@@ -483,6 +483,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8970093613790968897, guid: 43c08637cb3903a448a0ff1b3bf2f8d9, type: 3}
   bulletPrefab2: {fileID: 8970093613790968897, guid: 375510ebe87524d41b1c9d39b7c8d686, type: 3}
   bulletPrefab3: {fileID: 8970093613790968897, guid: 47b4c87bdfec8f64097a8b6ab462b56f, type: 3}
+  bulletPrefab4: {fileID: 8970093613790968897, guid: d1b17936818f63041982cd2168a857ce, type: 3}
   bulletsDown:
     m_PersistentCalls:
       m_Calls: []

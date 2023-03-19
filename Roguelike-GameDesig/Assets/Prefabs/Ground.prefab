@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 8728160483199864482}
   - component: {fileID: 450440700405522230}
   m_Layer: 6
-  m_Name: WindBullet
-  m_TagString: Wind
+  m_Name: Ground
+  m_TagString: GroundBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.60754716, g: 0.9927515, b: 1, a: 1}
+  m_Color: {r: 0.44313726, g: 0.16862746, b: 0.16862746, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject bulletPrefab2;
     public GameObject bulletPrefab3;
+    public GameObject bulletPrefab4;
     //public AudioSource shoot;
     public UnityEvent bulletsDown;
     public UnityEvent reload;
@@ -53,7 +54,7 @@ public class Shooting : MonoBehaviour
         {
             //shoot.Play();
             timeLastBullet = Time.time;
-            GameObject bullet = Instantiate(bulletPrefab3, firepoint.position, firepoint.rotation);
+            GameObject bullet = Instantiate(bulletPrefab4, firepoint.position, firepoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(firepoint.right * bulletforce, ForceMode2D.Impulse);
         }

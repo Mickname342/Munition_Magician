@@ -6,6 +6,7 @@ public class Bomb : MonoBehaviour
 {
     public GameObject explosion;
     public GameObject wind;
+    public GameObject barrier;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Fire") || collision.gameObject.CompareTag("DoubleDamage"))
@@ -26,6 +27,11 @@ public class Bomb : MonoBehaviour
             Rigidbody2D wb3 = wind3.GetComponent<Rigidbody2D>();
             wb3.AddForce(transform.right * 10, ForceMode2D.Impulse);
             wb3.AddForce(transform.up * -10, ForceMode2D.Impulse);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("GroundBullet"))
+        {
+            GameObject barrier1 = Instantiate(barrier, transform.position, transform.rotation * Quaternion.Euler(0,0,90));
             Destroy(gameObject);
         }
         
