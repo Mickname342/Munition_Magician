@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6897054287135801572}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3037779023738757296}
   - component: {fileID: 8728160483199864482}
   - component: {fileID: 450440700405522230}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: FireBullet
   m_TagString: Fire
   m_Icon: {fileID: 0}
