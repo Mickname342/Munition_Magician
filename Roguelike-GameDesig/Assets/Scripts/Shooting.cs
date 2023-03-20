@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            firetype();
+            fire = !fire;
         }
 
     }
@@ -90,8 +90,36 @@ public class Shooting : MonoBehaviour
         reload.Invoke();
     }
 
-    public void firetype()
+    public void firePrimary()
     {
-        fire = !fire;
+        bulletPrefab = fireBullet;
+    }
+    public void waterPrimary()
+    {
+        bulletPrefab = waterBullet;
+    }
+    public void windPrimary()
+    {
+        bulletPrefab = windBullet;
+    }
+    public void groundPrimary()
+    {
+        bulletPrefab = groundBullet;
+    }
+    public void fireSecondary()
+    {
+        bulletPrefab2 = fireBullet;
+    }
+    public void waterSecondary()
+    {
+        bulletPrefab2 = waterBullet;
+    }
+    public void windSecondary()
+    {
+        bulletPrefab2 = windBullet;
+    }
+    public void groundSecondary()
+    {
+        bulletPrefab2 = groundBullet;
     }
 }

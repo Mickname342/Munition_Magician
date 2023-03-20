@@ -22,12 +22,12 @@ public class Bomb : MonoBehaviour
             GameObject wind3 = Instantiate(wind, transform.position, transform.rotation);
             Rigidbody2D wb1 = wind1.GetComponent<Rigidbody2D>();
             wb1.AddForce(transform.right * 10, ForceMode2D.Impulse);
-            wb1.AddForce(transform.up * 10, ForceMode2D.Impulse);
+            wb1.AddForce(transform.up * 2, ForceMode2D.Impulse);
             Rigidbody2D wb2 = wind2.GetComponent<Rigidbody2D>();
             wb2.AddForce(transform.right * 10, ForceMode2D.Impulse);
             Rigidbody2D wb3 = wind3.GetComponent<Rigidbody2D>();
             wb3.AddForce(transform.right * 10, ForceMode2D.Impulse);
-            wb3.AddForce(transform.up * -10, ForceMode2D.Impulse);
+            wb3.AddForce(transform.up * -2, ForceMode2D.Impulse);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("GroundBullet"))
