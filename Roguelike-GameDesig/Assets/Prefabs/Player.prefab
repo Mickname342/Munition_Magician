@@ -441,7 +441,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
 --- !u!114 &3510854680120194379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,16 +456,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gunman: {fileID: 0}
   collider2: {fileID: 0}
-  charachter: {fileID: 0}
+  charachter: {fileID: 1249574329756986095}
   colorToTurnTo: {r: 1, g: 1, b: 1, a: 1}
-  hpLost:
+  gotHit:
     m_PersistentCalls:
       m_Calls: []
   hpGained:
     m_PersistentCalls:
       m_Calls: []
   hit: {fileID: 0}
-  speed: 5
+  speed: 7
   hp: 5
 --- !u!114 &6640432000293925200
 MonoBehaviour:
@@ -480,10 +480,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 5774465159640093370}
-  bulletPrefab: {fileID: 8970093613790968897, guid: 43c08637cb3903a448a0ff1b3bf2f8d9, type: 3}
-  bulletPrefab2: {fileID: 8970093613790968897, guid: 375510ebe87524d41b1c9d39b7c8d686, type: 3}
-  bulletPrefab3: {fileID: 8970093613790968897, guid: 47b4c87bdfec8f64097a8b6ab462b56f, type: 3}
-  bulletPrefab4: {fileID: 8970093613790968897, guid: d1b17936818f63041982cd2168a857ce, type: 3}
+  fireBullet: {fileID: 8970093613790968897, guid: 43c08637cb3903a448a0ff1b3bf2f8d9, type: 3}
+  waterBullet: {fileID: 8970093613790968897, guid: 7f612e625a30fa84193314330b19abbc, type: 3}
+  windBullet: {fileID: 8970093613790968897, guid: 47b4c87bdfec8f64097a8b6ab462b56f, type: 3}
+  groundBullet: {fileID: 8970093613790968897, guid: d1b17936818f63041982cd2168a857ce, type: 3}
+  bomb: {fileID: 8970093613790968897, guid: 375510ebe87524d41b1c9d39b7c8d686, type: 3}
   bulletsDown:
     m_PersistentCalls:
       m_Calls: []
@@ -584,7 +585,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5774465158936961097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -10,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider2D collider2;
     public SpriteRenderer charachter;
     public Color colorToTurnTo = Color.white;
-    public UnityEvent hpLost;
+    public UnityEvent gotHit;
     public UnityEvent hpGained;
     public AudioSource hit;
+    ScoreManager scoreManager;
+    public GameObject canvas;
 
     [SerializeField] float speed = 5f;
 
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        scoreManager = canvas.GetComponent<ScoreManager>();
 
     }
 
@@ -71,14 +76,17 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.gameObject.layer == 0)
+        print("jo");
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-            hit.Play();
+            //hit.Play();
             hp--;
-            collider2.enabled = false;
-            charachter.color = colorToTurnTo;
-            hpLost.Invoke();
-            Invoke("invincibility", 2f);
+            //collider2.enabled = false;
+            //charachter.color = colorToTurnTo;
+            print(hp);
+            scoreManager.Damaged();
+
+            //Invoke("invincibility", 2f);
 
         }
         
@@ -86,8 +94,8 @@ public class PlayerMovement : MonoBehaviour
 
     void invincibility()
     {
-        collider2.enabled = true;
-        charachter.color = Color.white;
+        //collider2.enabled = true;
+        //charachter.color = Color.white;
     }
 
     public void hpUp()

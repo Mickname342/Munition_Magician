@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3517280484918058922}
   - component: {fileID: 1722891439523935790}
   - component: {fileID: 3137877668140665723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: DoubleDamage
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 2900802891769600932}
   - component: {fileID: 769765767594932748}
   - component: {fileID: 9199678766737542545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaterStream
   m_TagString: DoubleDamage
   m_Icon: {fileID: 0}
