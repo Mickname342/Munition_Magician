@@ -17,6 +17,7 @@ public class Bear : MonoBehaviour
     public AIPath aipath;
     public SpriteRenderer spriteRenderer;
     int random;
+    public GameObject TheEnemy;
 
     private void Start()
     {
@@ -56,7 +57,7 @@ public class Bear : MonoBehaviour
             {
                 Instantiate(rechargePrefab, transform.position, Quaternion.identity);
             }*/
-            Destroy(gameObject);
+            Destroy(TheEnemy);
         }
 
         if (aipath.desiredVelocity.x >= 0.01f)
