@@ -7,6 +7,7 @@ public class Bomb : MonoBehaviour
     public GameObject explosion;
     public GameObject wind;
     public GameObject barrier;
+    public GameObject waterStream;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Fire") || collision.gameObject.CompareTag("DoubleDamage"))
@@ -34,6 +35,10 @@ public class Bomb : MonoBehaviour
             GameObject barrier1 = Instantiate(barrier, transform.position, transform.rotation * Quaternion.Euler(0,0,90));
             Destroy(gameObject);
         }
-        
+        else if (collision.gameObject.CompareTag("Water"))
+        {
+            GameObject waterStream1 = Instantiate(waterStream, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
 }

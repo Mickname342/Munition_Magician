@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8728160483199864482}
   - component: {fileID: 450440700405522230}
   m_Layer: 6
-  m_Name: Ground
+  m_Name: GroundBullet
   m_TagString: GroundBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,6 +9,8 @@ TagManager:
   - DoubleDamage
   - Wind
   - GroundBullet
+  - Enemy
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Bullets
-  - 
-  - 
+  - Water
+  - Bomb
   - 
   - 
   - 
