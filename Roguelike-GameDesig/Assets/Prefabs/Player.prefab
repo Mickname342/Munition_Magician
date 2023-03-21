@@ -465,6 +465,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hit: {fileID: 0}
+  canvas: {fileID: 0}
   speed: 7
   hp: 5
 --- !u!114 &6640432000293925200
@@ -779,7 +780,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5774465159789376539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

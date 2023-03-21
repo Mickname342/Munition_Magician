@@ -18,6 +18,8 @@ public class Bear : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     int random;
     public GameObject TheEnemy;
+    public GameObject enemyBullet;
+    public Transform playerTransform;
 
     private void Start()
     {
@@ -43,8 +45,21 @@ public class Bear : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        activate.Invoke();
-        anim.SetBool("Active", true);
+        //activate.Invoke();
+        //anim.SetBool("Active", true);
+        if (other.gameObject.CompareTag("Player"))
+        {
+            float angle = Mathf.Atan2( playerTransform.position.y - transform.position.y, playerTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
+            print(angle);
+            GameObject bulletShot = Instantiate(enemyBullet,transform.position, Quaternion.Euler(0,0,angle));
+            Rigidbody2D rb = bulletShot.GetComponent<Rigidbody2D>();
+            float xcomponent = Mathf.Cos(angle * Mathf.PI / 180) * 10;
+            float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * 10;
+            Vector3 forceapplied = new Vector3(xcomponent, ycomponent, 0);
+            print(forceapplied);
+
+            rb.AddForce(forceapplied, ForceMode2D.Impulse);
+        }
 
     }
 

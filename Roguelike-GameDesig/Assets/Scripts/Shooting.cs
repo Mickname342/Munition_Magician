@@ -19,7 +19,7 @@ public class Shooting : MonoBehaviour
 
     public float bulletforce = 20f;
     float timeLastShot = 0f;
-    float delayBetweenShots = 0.2f;
+    float delayBetweenShots = 0.24f;
     float timeLastBullet = 0f;
     int bullets = 12;
     bool fire = true;

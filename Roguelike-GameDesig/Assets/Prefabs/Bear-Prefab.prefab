@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2070999153307788938}
   - component: {fileID: 1481993957940606488}
   - component: {fileID: 7563023838725586507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -214,6 +214,8 @@ MonoBehaviour:
   aipath: {fileID: 0}
   spriteRenderer: {fileID: 0}
   TheEnemy: {fileID: 1515927896732642071}
+  enemyBullet: {fileID: 8970093613790968897, guid: b534715a495e1f147a3bda41f24dc327, type: 3}
+  playerTransform: {fileID: 0}
 --- !u!1 &1515927896732642071
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +228,7 @@ GameObject:
   - component: {fileID: 1515927896732642064}
   - component: {fileID: 1515927896732642065}
   - component: {fileID: 1515927896732642070}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Bear-Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -295,7 +297,7 @@ MonoBehaviour:
   radius: 1
   height: 2
   canMove: 1
-  maxSpeed: 4.5
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -345,7 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1407744450628822740}
   - component: {fileID: 981778299979926909}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5252239215959574418}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HP Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3642361280521588834}
   - component: {fileID: 8141524552665178451}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
