@@ -20,6 +20,7 @@ public class Bear : MonoBehaviour
     public GameObject TheEnemy;
     public GameObject enemyBullet;
     public Transform playerTransform;
+    public AIPath playerPath;
 
     private void Start()
     {
@@ -35,6 +36,10 @@ public class Bear : MonoBehaviour
                 hp = hp - 4;
                 hpBar.localScale = new Vector2(hpBar.localScale.x - 1/5f * 4f, 1);
             }
+            else if (collision.gameObject.CompareTag("Bomb"))
+            {
+                hp = hp - 0;
+            }
             else
             {
                 hp--;
@@ -47,7 +52,7 @@ public class Bear : MonoBehaviour
     {
         //activate.Invoke();
         //anim.SetBool("Active", true);
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             float angle = Mathf.Atan2( playerTransform.position.y - transform.position.y, playerTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
             print(angle);
@@ -57,7 +62,6 @@ public class Bear : MonoBehaviour
             float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * 10;
             Vector3 forceapplied = new Vector3(xcomponent, ycomponent, 0);
             print(forceapplied);
-
             rb.AddForce(forceapplied, ForceMode2D.Impulse);
         }
 

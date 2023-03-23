@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 81441673778783181}
   - component: {fileID: 90723970310139452}
   - component: {fileID: 2370859645852936209}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Explosion
   m_TagString: DoubleDamage
   m_Icon: {fileID: 0}

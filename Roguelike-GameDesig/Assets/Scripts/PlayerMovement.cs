@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     public SpriteRenderer Gunman;
     //public Animator anim;
-    public BoxCollider2D collider2;
+    public Collider2D collider2;
     public SpriteRenderer charachter;
     public Color colorToTurnTo = Color.white;
     public UnityEvent gotHit;
@@ -29,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         scoreManager = canvas.GetComponent<ScoreManager>();
+        collider2 = GetComponent<CircleCollider2D>();
 
     }
 
@@ -49,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
         if (hp < 0.1f)
         {
             GameObject.Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (Input.GetKey(KeyCode.R) && Input.GetKeyDown(KeyCode.L))
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -76,17 +82,16 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        print("jo");
         if(collision.gameObject.CompareTag("Enemy"))
         {
             //hit.Play();
             hp--;
-            //collider2.enabled = false;
-            //charachter.color = colorToTurnTo;
+            collider2.enabled = false;
+            charachter.color = colorToTurnTo;
             print(hp);
             scoreManager.Damaged();
 
-            //Invoke("invincibility", 2f);
+            Invoke("invincibility", 2f);
 
         }
         
@@ -94,8 +99,8 @@ public class PlayerMovement : MonoBehaviour
 
     void invincibility()
     {
-        //collider2.enabled = true;
-        //charachter.color = Color.white;
+        collider2.enabled = true;
+        charachter.color = Color.white;
     }
 
     public void hpUp()

@@ -44,6 +44,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             fire = !fire;
+            reload.Invoke();
         }
 
     }
