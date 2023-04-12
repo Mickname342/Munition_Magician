@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         scoreManager = canvas.GetComponent<ScoreManager>();
         collider2 = GetComponent<CircleCollider2D>();
+        hp = 5;
 
     }
 
@@ -87,9 +88,10 @@ public class PlayerMovement : MonoBehaviour
             //hit.Play();
             hp--;
             collider2.enabled = false;
-            charachter.color = colorToTurnTo;
+            //charachter.color = colorToTurnTo;
             print(hp);
             scoreManager.Damaged();
+            print("gothit");
 
             Invoke("invincibility", 2f);
 

@@ -52,7 +52,7 @@ public class Bear : MonoBehaviour
     {
         //activate.Invoke();
         //anim.SetBool("Active", true);
-        if (other.CompareTag("Player"))
+        /*if (other.CompareTag("Player"))
         {
             float angle = Mathf.Atan2( playerTransform.position.y - transform.position.y, playerTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
             print(angle);
@@ -63,7 +63,7 @@ public class Bear : MonoBehaviour
             Vector3 forceapplied = new Vector3(xcomponent, ycomponent, 0);
             print(forceapplied);
             rb.AddForce(forceapplied, ForceMode2D.Impulse);
-        }
+        }*/
 
     }
 
