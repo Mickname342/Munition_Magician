@@ -21,12 +21,19 @@ public class Bear : MonoBehaviour
     public GameObject enemyBullet;
     public Transform playerTransform;
     public AIPath playerPath;
+    EnemySpawner enemySpawner;
+    EnemySpawner enemySpawner2;
+    public GameObject Spawner;
+    public GameObject Spawner2;
 
     private void Start()
     {
         random = Random.Range(0,10);
         hpBar.localScale = new Vector2(maxHp/5, 1);
+        enemySpawner = Spawner.GetComponent<EnemySpawner>();
+        enemySpawner2 = Spawner2.GetComponent<EnemySpawner>();
     }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Player"))
@@ -72,11 +79,14 @@ public class Bear : MonoBehaviour
         if (hp <= 0)
         {
             dead.Invoke();
-            /*if (random <= 6)
+            enemySpawner.DefeatedEnemy();
+            enemySpawner2.DefeatedEnemy();
+            if (random <= 6)
             {
                 Instantiate(rechargePrefab, transform.position, Quaternion.identity);
-            }*/
+            }
             Destroy(TheEnemy);
+            
         }
 
         if (aipath.desiredVelocity.x >= 0.01f)

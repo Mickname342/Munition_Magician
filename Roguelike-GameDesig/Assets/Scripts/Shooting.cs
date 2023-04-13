@@ -21,6 +21,7 @@ public class Shooting : MonoBehaviour
     float timeLastShot = 0f;
     float delayBetweenShots = 0.24f;
     float timeLastBullet = 0f;
+    int bombLimit = 5;
     int bullets = 12;
     bool fire = true;
     bool water = false;
@@ -37,7 +38,7 @@ public class Shooting : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > timeLastBullet + delayBetweenShots)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > timeLastBullet + delayBetweenShots && bombLimit > 0)
         {
             ShootSpecial();
         }
@@ -78,7 +79,8 @@ public class Shooting : MonoBehaviour
         timeLastBullet = Time.time;
         GameObject bullet = Instantiate(bomb, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firepoint.right * bulletforce/4, ForceMode2D.Impulse);
+        bombLimit--;
+        
     }
 
     public void reloadBullets()
@@ -122,5 +124,14 @@ public class Shooting : MonoBehaviour
     public void groundSecondary()
     {
         bulletPrefab2 = groundBullet;
+    }
+
+    public void ReloadBombs()
+    {
+        bombLimit = bombLimit + 2;
+        if(bombLimit > 5)
+        {
+            bombLimit = 5;
+        }
     }
 }

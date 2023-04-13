@@ -229,6 +229,8 @@ MonoBehaviour:
   enemyBullet: {fileID: 8970093613790968897, guid: b534715a495e1f147a3bda41f24dc327, type: 3}
   playerTransform: {fileID: 0}
   playerPath: {fileID: 0}
+  Spawner: {fileID: 0}
+  Spawner2: {fileID: 0}
 --- !u!1 &1515927896732642071
 GameObject:
   m_ObjectHideFlags: 0
