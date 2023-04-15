@@ -19,10 +19,12 @@ public class Shooting : MonoBehaviour
 
     public float bulletforce = 20f;
     float timeLastShot = 0f;
-    float delayBetweenShots = 0.24f;
+    float delayBetweenShots = 0.35f;
     float timeLastBullet = 0f;
+    int currentBombs = 5;
     int bombLimit = 5;
-    int bullets = 12;
+    int currentBullets = 1;
+    float initialAngle = 0f;
     bool fire = true;
     bool water = false;
 
@@ -48,6 +50,16 @@ public class Shooting : MonoBehaviour
             reload.Invoke();
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            MoreBombs();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            MoreBullets();
+        }
+
     }
 
     void Shoot()
@@ -56,9 +68,16 @@ public class Shooting : MonoBehaviour
         {
             //shoot.Play();
             timeLastBullet = Time.time;
-            GameObject bullet2 = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
-            Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-            rb2.AddForce(firepoint.right * bulletforce, ForceMode2D.Impulse);
+            for(int i = 0; i < currentBullets; i++)
+            {
+                GameObject bullet2 = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
+                Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
+                float horizontalForce = Mathf.Cos(initialAngle*(i-2));
+                float verticalForce = Mathf.Sin(initialAngle * (i - 2));
+                rb2.AddForce(firepoint.right * bulletforce *horizontalForce , ForceMode2D.Impulse);
+                rb2.AddForce(firepoint.up * bulletforce * verticalForce , ForceMode2D.Impulse);
+            }
+            
         }
         else
         {
@@ -79,18 +98,8 @@ public class Shooting : MonoBehaviour
         timeLastBullet = Time.time;
         GameObject bullet = Instantiate(bomb, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        bombLimit--;
+        currentBombs--;
         
-    }
-
-    public void reloadBullets()
-    {
-        bullets = bullets + 6;
-        if (bullets >= 12)
-        {
-            bullets = 12;
-        }
-        reload.Invoke();
     }
 
     public void firePrimary()
@@ -128,10 +137,21 @@ public class Shooting : MonoBehaviour
 
     public void ReloadBombs()
     {
-        bombLimit = bombLimit + 2;
-        if(bombLimit > 5)
+        currentBombs = currentBombs + 2;
+        if(currentBombs > bombLimit)
         {
-            bombLimit = 5;
+            currentBombs = bombLimit;
         }
+    }
+
+    public void MoreBombs()
+    {
+        bombLimit = bombLimit +2;
+    }
+
+    public void MoreBullets()
+    {
+        currentBullets = currentBullets + 2;
+        initialAngle = initialAngle + 0.1f;
     }
 }
