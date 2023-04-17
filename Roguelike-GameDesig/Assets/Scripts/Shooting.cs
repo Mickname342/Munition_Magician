@@ -40,7 +40,7 @@ public class Shooting : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > timeLastBullet + delayBetweenShots && bombLimit > 0)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > timeLastBullet + delayBetweenShots && currentBombs > 0)
         {
             ShootSpecial();
         }
@@ -99,6 +99,7 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bomb, firepoint.position, firepoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         currentBombs--;
+        print("bombs Left: " + currentBombs);
         
     }
 
@@ -151,7 +152,7 @@ public class Shooting : MonoBehaviour
 
     public void MoreBullets()
     {
-        currentBullets = currentBullets + 2;
+        currentBullets = currentBullets + 1;
         initialAngle = initialAngle + 0.1f;
     }
 }

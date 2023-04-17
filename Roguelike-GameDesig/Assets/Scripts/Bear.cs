@@ -6,7 +6,7 @@ using Pathfinding;
 
 public class Bear : MonoBehaviour
 {
-    public int hp = 10;
+    public int hp = 6;
     public int maxHp = 10;
     public Transform hpBar;
     public UnityEvent activate;
