@@ -62,4 +62,9 @@ public class EnemySpawner : MonoBehaviour
     {
         ableToSpawn = true;
     }
+
+    public void IncreaseWaves()
+    {
+        waves++;
+    }
 }

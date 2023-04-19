@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour
     public GameObject windBullet;
     public GameObject groundBullet;
     public GameObject bomb;
+    public GameObject upgradeMenu;
     GameObject bulletPrefab;
     GameObject bulletPrefab2;
     //public AudioSource shoot;
@@ -152,6 +153,7 @@ public class Shooting : MonoBehaviour
 
     public void MoreBullets()
     {
+        upgradeMenu.SetActive(false);
         currentBullets = currentBullets + 1;
         initialAngle = initialAngle + 0.1f;
     }
