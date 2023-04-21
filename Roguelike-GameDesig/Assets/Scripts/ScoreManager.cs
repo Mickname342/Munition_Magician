@@ -12,7 +12,14 @@ public class ScoreManager : MonoBehaviour
     public Text upgrade2Text;
     public ScriptableUpgrade upgrade1;
     public ScriptableUpgrade upgrade2;
+    public RectTransform posUpgrade1;
+    public RectTransform posUpgrade2;
+    public RectTransform upgrade1pos;
+    public RectTransform upgrade2pos;
     // Start is called before the first frame update
+
+    int upgradeRandomiser1;
+    int upgradeRandomiser2;
 
     int totalHp = 5;
     void Start()
@@ -34,6 +41,30 @@ public class ScoreManager : MonoBehaviour
 
     public void RoundEnded()
     {
+        upgradeRandomiser1 = Random.Range(0, 2);
+        upgradeRandomiser2 = Random.Range(0, 2);
+        while (upgradeRandomiser2 == upgradeRandomiser1)
+        {
+            upgradeRandomiser2 = Random.Range(0, 2);
+        }
+        switch (upgradeRandomiser1)
+        {
+            case 0:
+                upgrade1pos.position = posUpgrade1.position;
+                break;
+            case 1:
+                upgrade1pos.position = posUpgrade2.position;
+                break;
+        }
+        switch (upgradeRandomiser2)
+        {
+            case 0:
+                upgrade2pos.position = posUpgrade1.position;
+                break;
+            case 1:
+                upgrade2pos.position = posUpgrade2.position;
+                break;
+        }
         upgrade1Text.text = upgrade1.upgradeName;
         upgrade2Text.text = upgrade2.upgradeName;
         upgradeSelect.SetActive(true);

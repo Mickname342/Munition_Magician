@@ -49,6 +49,7 @@ public class EnemySpawner : MonoBehaviour
         {
             scoreManager.RoundEnded();
             ableToSpawn = false;
+            waves++;
         }
     }
 
