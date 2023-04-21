@@ -16,10 +16,13 @@ public class ScoreManager : MonoBehaviour
     public RectTransform posUpgrade2;
     public RectTransform upgrade1pos;
     public RectTransform upgrade2pos;
+    public RectTransform upgrade3pos;
     // Start is called before the first frame update
 
     int upgradeRandomiser1;
     int upgradeRandomiser2;
+
+    public int numberOfUpgrades = 3;
 
     int totalHp = 5;
     void Start()
@@ -41,11 +44,11 @@ public class ScoreManager : MonoBehaviour
 
     public void RoundEnded()
     {
-        upgradeRandomiser1 = Random.Range(0, 2);
-        upgradeRandomiser2 = Random.Range(0, 2);
+        upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+        upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
         while (upgradeRandomiser2 == upgradeRandomiser1)
         {
-            upgradeRandomiser2 = Random.Range(0, 2);
+            upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
         }
         switch (upgradeRandomiser1)
         {
@@ -53,16 +56,22 @@ public class ScoreManager : MonoBehaviour
                 upgrade1pos.position = posUpgrade1.position;
                 break;
             case 1:
-                upgrade1pos.position = posUpgrade2.position;
+                upgrade2pos.position = posUpgrade1.position;
+                break;
+            case 2:
+                upgrade3pos.position = posUpgrade1.position;
                 break;
         }
         switch (upgradeRandomiser2)
         {
             case 0:
-                upgrade2pos.position = posUpgrade1.position;
+                upgrade1pos.position = posUpgrade2.position;
                 break;
             case 1:
                 upgrade2pos.position = posUpgrade2.position;
+                break;
+            case 2:
+                upgrade3pos.position= posUpgrade2.position;
                 break;
         }
         upgrade1Text.text = upgrade1.upgradeName;

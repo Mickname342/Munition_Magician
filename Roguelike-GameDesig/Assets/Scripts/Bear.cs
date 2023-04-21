@@ -6,8 +6,9 @@ using Pathfinding;
 
 public class Bear : MonoBehaviour
 {
-    public int hp = 6;
+    public int hp = 8;
     public int maxHp = 10;
+    public int damage;
     public Transform hpBar;
     public UnityEvent activate;
     public UnityEvent dead;
@@ -32,6 +33,7 @@ public class Bear : MonoBehaviour
         hpBar.localScale = new Vector2(maxHp/5, 1);
         enemySpawner = Spawner.GetComponent<EnemySpawner>();
         enemySpawner2 = Spawner2.GetComponent<EnemySpawner>();
+        damage = 1;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -50,7 +52,7 @@ public class Bear : MonoBehaviour
             else
             {
                 hp--;
-                hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
+                hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f * damage, 1);
             }
         }
     }
@@ -81,7 +83,7 @@ public class Bear : MonoBehaviour
             dead.Invoke();
             enemySpawner.DefeatedEnemy();
             enemySpawner2.DefeatedEnemy();
-            if (random <= 6)
+            if (random <= 3)
             {
                 Instantiate(rechargePrefab, transform.position, Quaternion.identity);
             }
@@ -98,6 +100,12 @@ public class Bear : MonoBehaviour
             spriteRenderer.flipX = true;
         }
         
+    }
+
+    public void ExtraDamage()
+    {
+        hp = hp/2;
+        print("Amount of Damage: " + hp);
     }
 }
 
