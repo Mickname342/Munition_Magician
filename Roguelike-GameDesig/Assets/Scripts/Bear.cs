@@ -6,7 +6,7 @@ using Pathfinding;
 
 public class Bear : MonoBehaviour
 {
-    public int hp = 8;
+    public float hp = 6;
     public int maxHp = 10;
     public int damage;
     public Transform hpBar;
@@ -19,7 +19,6 @@ public class Bear : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     int random;
     public GameObject TheEnemy;
-    public GameObject enemyBullet;
     public Transform playerTransform;
     public AIPath playerPath;
     EnemySpawner enemySpawner;
@@ -38,6 +37,7 @@ public class Bear : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        print("I am Getting hit");
         if (!collision.gameObject.CompareTag("Player"))
         {
             if (collision.gameObject.CompareTag("DoubleDamage"))
@@ -53,6 +53,7 @@ public class Bear : MonoBehaviour
             {
                 hp--;
                 hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f * damage, 1);
+                print(hp);
             }
         }
     }
@@ -83,7 +84,7 @@ public class Bear : MonoBehaviour
             dead.Invoke();
             enemySpawner.DefeatedEnemy();
             enemySpawner2.DefeatedEnemy();
-            if (random <= 3)
+            if (random <= 1)
             {
                 Instantiate(rechargePrefab, transform.position, Quaternion.identity);
             }

@@ -157,4 +157,9 @@ public class Shooting : MonoBehaviour
         currentBullets = currentBullets + 1;
         initialAngle = initialAngle + 0.1f;
     }
+
+    public void MoreSpeed()
+    {
+        bulletforce = bulletforce + 10f;
+    }
 }

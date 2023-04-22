@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
             Gunman.flipX = false;
         }
 
-        if (hp < 0.1f)
+        if (hp < 1f)
         {
             GameObject.Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -107,14 +107,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void hpUp()
     {
-        if (hp < 5)
-        {
-            hp++;
-            hpGained.Invoke();
-        }
-        else
-        {
-            hp = 5;
-        }
+        hp = 5;
+        scoreManager.HpRecover();
+    }
+
+    public void IncreaseSpeed()
+    {
+        speed++;
     }
 }
