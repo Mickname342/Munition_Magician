@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3037779023738757296}
   - component: {fileID: 8728160483199864482}
   - component: {fileID: 450440700405522230}
+  - component: {fileID: 1118853343295345440}
   m_Layer: 6
   m_Name: WaterBullet
   m_TagString: Water
@@ -193,3 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3155e49282eb3284882773ff0f10c70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLimit: 0.4
+--- !u!114 &1118853343295345440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970093613790968897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c163a83726339cc4f84b62f5b5321c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}

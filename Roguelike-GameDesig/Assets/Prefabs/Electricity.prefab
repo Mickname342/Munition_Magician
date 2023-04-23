@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3840705914431569398}
   - component: {fileID: 5364477153039221238}
   - component: {fileID: 4209089763777899168}
-  - component: {fileID: 81441673778783181}
   - component: {fileID: 90723970310139452}
-  m_Layer: 7
-  m_Name: Explosion
-  m_TagString: DoubleDamage
+  - component: {fileID: 8580970064260284128}
+  m_Layer: 6
+  m_Name: Electricity
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.754717, g: 0.0028479325, b: 0.0028479325, a: 1}
+  m_Color: {r: 0.9597897, g: 0.9716981, b: 0.10450332, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,26 +122,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!95 &81441673778783181
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1603010498226723205}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ffc2927e36071442a71f7e26dcf745e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &90723970310139452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +134,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407cec93ae603d64188ddecd72f463f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8580970064260284128
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603010498226723205}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efee093ea0182a840b034754518f7a29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

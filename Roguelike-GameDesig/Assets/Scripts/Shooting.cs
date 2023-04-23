@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
@@ -15,8 +16,10 @@ public class Shooting : MonoBehaviour
     GameObject bulletPrefab;
     GameObject bulletPrefab2;
     //public AudioSource shoot;
-    public UnityEvent bulletsDown;
-    public UnityEvent reload;
+    public GameObject weaponChanger;
+    public Text bombNumber;
+    public Text bombTotalNumber;
+
 
     public float bulletforce = 20f;
     float timeLastShot = 0f;
@@ -37,6 +40,8 @@ public class Shooting : MonoBehaviour
     }
     void Update()
     {
+        bombNumber.text = currentBombs.ToString();
+        bombTotalNumber.text = bombLimit.ToString();
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
@@ -45,12 +50,16 @@ public class Shooting : MonoBehaviour
         {
             ShootSpecial();
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            fire = !fire;
-            reload.Invoke();
+            fire = true;
+            //reload.Invoke();
         }
-
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            fire = false;
+            //reload.Invoke();
+        }
         if (Input.GetKeyDown(KeyCode.K))
         {
             MoreBombs();
@@ -61,6 +70,14 @@ public class Shooting : MonoBehaviour
             MoreBullets();
         }
 
+        if (fire == true)
+        {
+            weaponChanger.SetActive(true);
+        }
+        if (fire == false)
+        {
+            weaponChanger.SetActive(false);
+        }
     }
 
     void Shoot()
@@ -73,10 +90,19 @@ public class Shooting : MonoBehaviour
             {
                 GameObject bullet2 = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-                float horizontalForce = Mathf.Cos(initialAngle*(i-2));
+                float horizontalForce = Mathf.Cos(initialAngle * (i-2));
                 float verticalForce = Mathf.Sin(initialAngle * (i - 2));
-                rb2.AddForce(firepoint.right * bulletforce *horizontalForce , ForceMode2D.Impulse);
-                rb2.AddForce(firepoint.up * bulletforce * verticalForce , ForceMode2D.Impulse);
+                if (bulletPrefab == windBullet)
+                {
+                    rb2.AddForce(firepoint.right * bulletforce * horizontalForce* 999, ForceMode2D.Impulse);
+                    rb2.AddForce(firepoint.up * bulletforce * verticalForce * 999, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                    rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+                }
+                
             }
             
         }
@@ -84,9 +110,23 @@ public class Shooting : MonoBehaviour
         {
             //shoot.Play();
             timeLastBullet = Time.time;
-            GameObject bullet = Instantiate(bulletPrefab2, firepoint.position, firepoint.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firepoint.right * bulletforce, ForceMode2D.Impulse);
+            for (int i = 0; i < currentBullets; i++)
+            {
+                GameObject bullet = Instantiate(bulletPrefab2, firepoint.position, firepoint.rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                float horizontalForce = Mathf.Cos(initialAngle * (i - 2));
+                float verticalForce = Mathf.Sin(initialAngle * (i - 2));
+                if (bulletPrefab2 == windBullet)
+                {
+                    rb.AddForce(firepoint.right * bulletforce * horizontalForce * 999, ForceMode2D.Impulse);
+                    rb.AddForce(firepoint.up * bulletforce * verticalForce * 999, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rb.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                    rb.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+                }
+            }
         }
         //bullets--;
         //bulletsDown.Invoke();

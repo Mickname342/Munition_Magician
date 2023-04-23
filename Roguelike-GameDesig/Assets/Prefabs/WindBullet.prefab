@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3037779023738757296}
   - component: {fileID: 8728160483199864482}
   - component: {fileID: 450440700405522230}
+  - component: {fileID: 5289452714210462661}
   m_Layer: 6
   m_Name: WindBullet
   m_TagString: Wind
@@ -79,7 +80,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 999
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -191,5 +192,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3155e49282eb3284882773ff0f10c70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimit: 0.4
+--- !u!114 &5289452714210462661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970093613790968897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be55eb5660ae54449e61c021b204492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3037779023738757296}
   - component: {fileID: 8728160483199864482}
   - component: {fileID: 450440700405522230}
+  - component: {fileID: 1364053457371125809}
   m_Layer: 6
   m_Name: GroundBullet
   m_TagString: GroundBullet
@@ -170,8 +171,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 621914615, guid: a62a23bfd89dd504a9b83523ad50108e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1369125401, guid: a62a23bfd89dd504a9b83523ad50108e, type: 3}
+  m_Color: {r: 1, g: 0.98071563, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -193,3 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3155e49282eb3284882773ff0f10c70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLimit: 0.4
+--- !u!114 &1364053457371125809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970093613790968897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d72ad0125a47e44a1062aa1dc1c508, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  electricity: {fileID: 1603010498226723205, guid: e5f7d2dba7f75964995ad8b8b8b8b064, type: 3}
