@@ -25,9 +25,21 @@ public class Bear : MonoBehaviour
     EnemySpawner enemySpawner;
     EnemySpawner enemySpawner2;
     EnemySpawner enemySpawner3;
+    EnemySpawner enemySpawner4;
+    EnemySpawner enemySpawner5;
+    EnemySpawner enemySpawner6;
+    EnemySpawner enemySpawner7;
+    EnemySpawner enemySpawner8;
+    EnemySpawner enemySpawner9;
     public GameObject Spawner;
     public GameObject Spawner2;
     public GameObject Spawner3;
+    public GameObject Spawner4;
+    public GameObject Spawner5;
+    public GameObject Spawner6;
+    public GameObject Spawner7;
+    public GameObject Spawner8;
+    public GameObject Spawner9;
     public bool shooter = false;
 
     public GameObject fire;
@@ -46,6 +58,12 @@ public class Bear : MonoBehaviour
         enemySpawner = Spawner.GetComponent<EnemySpawner>();
         enemySpawner2 = Spawner2.GetComponent<EnemySpawner>();
         enemySpawner3 = Spawner3.GetComponent<EnemySpawner>();
+        enemySpawner4 = Spawner4.GetComponent<EnemySpawner>();
+        enemySpawner5 = Spawner5.GetComponent<EnemySpawner>();
+        enemySpawner6 = Spawner6.GetComponent<EnemySpawner>();
+        enemySpawner7 = Spawner7.GetComponent<EnemySpawner>();
+        enemySpawner8 = Spawner8.GetComponent<EnemySpawner>();
+        enemySpawner9 = Spawner9.GetComponent<EnemySpawner>();
         damage = 1;
     }
 
@@ -102,6 +120,12 @@ public class Bear : MonoBehaviour
             enemySpawner.DefeatedEnemy();
             enemySpawner2.DefeatedEnemy();
             enemySpawner3.DefeatedEnemy();
+            enemySpawner4.DefeatedEnemy();
+            enemySpawner5.DefeatedEnemy();
+            enemySpawner6.DefeatedEnemy();
+            enemySpawner7.DefeatedEnemy();
+            enemySpawner8.DefeatedEnemy();
+            enemySpawner9.DefeatedEnemy();
             if (random <= 1)
             {
                 Instantiate(rechargePrefab, transform.position, Quaternion.identity);
@@ -170,7 +194,17 @@ public class Bear : MonoBehaviour
     {
         GameObject electricBall = Instantiate(electricity,transform.position + new Vector3 (0,0,12),transform.rotation);
         electricBall.transform.parent = gameObject.transform;
+        electricBall.gameObject.layer = LayerMask.NameToLayer("Bullets");
+        //Collider2D ballCollision = electricBall.GetComponent<Collider2D>();
+        //ballCollision.isTrigger = true;
         
+    }
+
+    public void HitByElectric()
+    {
+        hp--;
+        hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
+        print(hp);
     }
 }
 

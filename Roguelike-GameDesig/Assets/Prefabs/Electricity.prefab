@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4209089763777899168}
   - component: {fileID: 90723970310139452}
   - component: {fileID: 8580970064260284128}
+  - component: {fileID: 8885603492816441189}
   m_Layer: 6
   m_Name: Electricity
   m_TagString: Bullet
@@ -116,7 +117,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -154,3 +155,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &8885603492816441189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603010498226723205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8b2c0a95e787346816e9e773c37539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

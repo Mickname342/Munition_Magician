@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     float lastSpawned = 0;
     float enemiesDefeated = 0;
     float enemiesSpawned = 0;
-    float enemyLimit = 3;
+    float enemyLimit = 6;
     float enemiesOnField = 0;
     int waves = 1;
     int reachedWaveNumber = 4;
@@ -24,14 +24,32 @@ public class EnemySpawner : MonoBehaviour
     public bool upgrades3 = true;
     public bool shooting = false;
     ScoreManager scoreManager;
-
+    
+    bool wave2 = false;
+    bool wave3 = false;
+    bool wave5 = false;
+    bool wave6 = false;
+    bool wave8 = false;
+    bool wave9 = false;
 
     EnemySpawner enemySpawner1;
     EnemySpawner enemySpawner2;
     EnemySpawner enemySpawner3;
+    EnemySpawner enemySpawner4;
+    EnemySpawner enemySpawner5;
+    EnemySpawner enemySpawner6;
+    EnemySpawner enemySpawner7;
+    EnemySpawner enemySpawner8;
+    EnemySpawner enemySpawner9;
     public GameObject spawner1;
     public GameObject spawner2;
     public GameObject spawner3;
+    public GameObject spawner4;
+    public GameObject spawner5;
+    public GameObject spawner6;
+    public GameObject spawner7;
+    public GameObject spawner8;
+    public GameObject spawner9;
     void Start()
     {
         scoreManager = canvas.GetComponent<ScoreManager>();
@@ -39,12 +57,22 @@ public class EnemySpawner : MonoBehaviour
         enemySpawner1 = spawner1.GetComponent<EnemySpawner>();
         enemySpawner2 = spawner2.GetComponent<EnemySpawner>();
         enemySpawner3 = spawner3.GetComponent<EnemySpawner>();
+        enemySpawner4 = spawner4.GetComponent<EnemySpawner>();
+        enemySpawner5 = spawner5.GetComponent<EnemySpawner>();
+        enemySpawner6 = spawner6.GetComponent<EnemySpawner>();
+        enemySpawner7 = spawner7.GetComponent<EnemySpawner>();
+        enemySpawner8 = spawner8.GetComponent<EnemySpawner>();
+        enemySpawner9 = spawner9.GetComponent<EnemySpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+        if (enemiesOnField <= 0)
+        {
+            enemiesOnField = 0;
+        }
         waveCounter.text = waves.ToString();
         if (Time.time > lastSpawned + timeToSpawn && enemiesSpawned < enemyLimit && ableToSpawn)
         {
@@ -54,6 +82,12 @@ public class EnemySpawner : MonoBehaviour
             enemySpawner1.MoreEnemiesOnField();
             enemySpawner2.MoreEnemiesOnField();
             enemySpawner3.MoreEnemiesOnField();
+            enemySpawner4.MoreEnemiesOnField();
+            enemySpawner5.MoreEnemiesOnField();
+            enemySpawner6.MoreEnemiesOnField();
+            enemySpawner7.MoreEnemiesOnField();
+            enemySpawner8.MoreEnemiesOnField();
+            enemySpawner9.MoreEnemiesOnField();
             if (shooting)
             {
                 timeToSpawn = 999;
@@ -68,6 +102,80 @@ public class EnemySpawner : MonoBehaviour
             timeToSpawn = timeToSpawn - (1f * 1.5f/waves);
             waves++;
             print("wave number " + waves);
+        }
+
+        if( waves == 2 && wave2 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave2 = true;
+            }
+        }
+        if (waves == 3 && wave3 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave3 = true;
+            }
+        }
+        if (waves == 5 && wave5 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave5 = true;
+            }
+        }
+        if (waves == 6 && wave6 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave6 = true;
+            }
+        }
+        if (waves == 8 && wave8 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave8 = true;
+            }
+        }
+
+        if (waves == 9 && wave9 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave9 = true;
+            }
         }
 
         if (waves == 4 && reachedWaveNumber == 4 )
@@ -113,13 +221,14 @@ public class EnemySpawner : MonoBehaviour
     {
         enemiesDefeated++;
         enemiesOnField--;
-        print(enemiesDefeated);
+        print("you defeated: " + enemiesDefeated);
     }
 
     public void ResetTime()
     {
         ableToSpawn = true;
         reachedWaveNumber = reachedWaveNumber + 3;
+        print("i've reached wave nº: " + reachedWaveNumber);
         //waves++;
         //upgrades = true;
     }

@@ -41,6 +41,6 @@ public class EnemyShooting : MonoBehaviour
         float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * 10;
         Vector3 forceapplied = new Vector3(xcomponent, ycomponent, 0);
         print(forceapplied);
-        rb.AddForce(forceapplied, ForceMode2D.Impulse);
+        rb.AddForce(forceapplied * 4, ForceMode2D.Impulse);
     }
 }

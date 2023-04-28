@@ -21,9 +21,9 @@ public class Shooting : MonoBehaviour
     public Text bombTotalNumber;
 
 
-    public float bulletforce = 20f;
+    public float bulletforce = 40f;
     float timeLastShot = 0f;
-    float delayBetweenShots = 0.35f;
+    float delayBetweenShots = 0.07f;
     float timeLastBullet = 0f;
     int currentBombs = 5;
     int bombLimit = 5;
@@ -42,7 +42,7 @@ public class Shooting : MonoBehaviour
     {
         bombNumber.text = currentBombs.ToString();
         bombTotalNumber.text = bombLimit.ToString();
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > timeLastShot + delayBetweenShots)
         {
             Shoot();
         }
@@ -85,7 +85,7 @@ public class Shooting : MonoBehaviour
         if (fire)
         {
             //shoot.Play();
-            timeLastBullet = Time.time;
+            timeLastShot = Time.time;
             for(int i = 0; i < currentBullets; i++)
             {
                 GameObject bullet2 = Instantiate(bulletPrefab, firepoint.position, firepoint.rotation);
@@ -109,7 +109,7 @@ public class Shooting : MonoBehaviour
         else
         {
             //shoot.Play();
-            timeLastBullet = Time.time;
+            timeLastShot = Time.time;
             for (int i = 0; i < currentBullets; i++)
             {
                 GameObject bullet = Instantiate(bulletPrefab2, firepoint.position, firepoint.rotation);

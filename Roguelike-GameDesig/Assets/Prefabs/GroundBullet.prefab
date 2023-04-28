@@ -61,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 8970093613790968897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6897054287135801572}
@@ -207,4 +207,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d72ad0125a47e44a1062aa1dc1c508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  electricity: {fileID: 1603010498226723205, guid: e5f7d2dba7f75964995ad8b8b8b8b064, type: 3}
