@@ -19,6 +19,12 @@ public class Shooting : MonoBehaviour
     public GameObject weaponChanger;
     public Text bombNumber;
     public Text bombTotalNumber;
+    public Text bulletNumber;
+    public Text bulletTotalNumber;
+
+    public Transform rechargeBar;
+    public SpriteRenderer rechargeSprite;
+    public Animator rechargeAnim;
 
 
     public float bulletforce = 40f;
@@ -31,6 +37,12 @@ public class Shooting : MonoBehaviour
     float initialAngle = 0f;
     bool fire = true;
     bool water = false;
+    
+    int bullets = 60;
+    int totalBullets = 60;
+    float rechargeTime = 2f;
+    float rechargeStart = 0f;
+    bool recharging = false;
 
     // Update is called once per frame
     private void Start()
@@ -42,7 +54,9 @@ public class Shooting : MonoBehaviour
     {
         bombNumber.text = currentBombs.ToString();
         bombTotalNumber.text = bombLimit.ToString();
-        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > timeLastShot + delayBetweenShots)
+        bulletNumber.text = bullets.ToString();
+        bulletTotalNumber.text = totalBullets.ToString();
+        if (Input.GetKeyDown(KeyCode.Mouse0) && bullets > 0)
         {
             Shoot();
         }
@@ -78,10 +92,17 @@ public class Shooting : MonoBehaviour
         {
             weaponChanger.SetActive(false);
         }
+
+        if (bullets <= 0)
+        {
+            rechargeAnim.SetBool("recharging", true);
+            rechargeSprite.enabled = true;
+        }
     }
 
     void Shoot()
     {
+        bullets--;
         if (fire)
         {
             //shoot.Play();
@@ -144,6 +165,13 @@ public class Shooting : MonoBehaviour
         
     }
 
+    public void Recharge()
+    {
+        bullets = totalBullets;
+        rechargeAnim.SetBool("recharging", false);
+        rechargeSprite.enabled = false;
+    }
+
     public void firePrimary()
     {
         bulletPrefab = fireBullet;
@@ -189,6 +217,11 @@ public class Shooting : MonoBehaviour
     public void MoreBombs()
     {
         bombLimit = bombLimit +2;
+    }
+
+    public void MoreTotalBullets()
+    {
+        totalBullets = totalBullets + 20;
     }
 
     public void MoreBullets()

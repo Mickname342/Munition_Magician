@@ -133,6 +133,7 @@ public class Bear : MonoBehaviour
             if (shooter)
             {
                 enemySpawner3.SpawnShooter();
+                enemySpawner6.SpawnShooter();
             }
             Destroy(TheEnemy);
             

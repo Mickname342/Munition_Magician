@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     float lastSpawned = 0;
     float enemiesDefeated = 0;
     float enemiesSpawned = 0;
-    float enemyLimit = 6;
+    float enemyLimit = 3;
     float enemiesOnField = 0;
     int waves = 1;
     int reachedWaveNumber = 4;
@@ -63,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
         enemySpawner7 = spawner7.GetComponent<EnemySpawner>();
         enemySpawner8 = spawner8.GetComponent<EnemySpawner>();
         enemySpawner9 = spawner9.GetComponent<EnemySpawner>();
+        waveCounter.text = 1.ToString();
     }
 
     // Update is called once per frame
@@ -73,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemiesOnField = 0;
         }
-        waveCounter.text = waves.ToString();
+        //waveCounter.text = waves.ToString();
         if (Time.time > lastSpawned + timeToSpawn && enemiesSpawned < enemyLimit && ableToSpawn)
         {
             lastSpawned = Time.time;
@@ -99,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
             enemiesDefeated = 0;
             enemiesSpawned = 0;
             enemyLimit = enemyLimit + 1;
-            timeToSpawn = timeToSpawn - (1f * 1.5f/waves);
+            timeToSpawn = timeToSpawn - 1/waves;
             waves++;
             print("wave number " + waves);
         }
@@ -114,6 +115,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 ableToSpawn = true;
                 wave2 = true;
+                waveCounter.text = waves.ToString();
             }
         }
         if (waves == 3 && wave3 == false)
@@ -126,6 +128,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 ableToSpawn = true;
                 wave3 = true;
+                waveCounter.text = waves.ToString();
             }
         }
         if (waves == 5 && wave5 == false)
@@ -138,6 +141,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 ableToSpawn = true;
                 wave5 = true;
+                waveCounter.text = waves.ToString();
             }
         }
         if (waves == 6 && wave6 == false)
@@ -150,6 +154,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 ableToSpawn = true;
                 wave6 = true;
+                waveCounter.text = waves.ToString();
             }
         }
         if (waves == 8 && wave8 == false)
@@ -162,6 +167,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 ableToSpawn = true;
                 wave8 = true;
+                waveCounter.text = waves.ToString();
             }
         }
 
@@ -175,6 +181,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 ableToSpawn = true;
                 wave9 = true;
+                waveCounter.text = waves.ToString();
             }
         }
 
@@ -211,7 +218,7 @@ public class EnemySpawner : MonoBehaviour
 
         }
 
-        if (waves == 11 && enemiesOnField == 0)
+        if (waves >= 11 && enemiesOnField == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -229,6 +236,7 @@ public class EnemySpawner : MonoBehaviour
         ableToSpawn = true;
         reachedWaveNumber = reachedWaveNumber + 3;
         print("i've reached wave nº: " + reachedWaveNumber);
+        waveCounter.text = waves.ToString();
         //waves++;
         //upgrades = true;
     }
