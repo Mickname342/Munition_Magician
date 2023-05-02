@@ -12,11 +12,14 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D collider2;
     public SpriteRenderer charachter;
     public Color colorToTurnTo = Color.white;
+    public Color normalColor = Color.white;
     public UnityEvent gotHit;
     public UnityEvent hpGained;
     public AudioSource hit;
     ScoreManager scoreManager;
     public GameObject canvas;
+    public GameObject camera;
+    Shake shake;
 
     [SerializeField] float speed = 5f;
 
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         scoreManager = canvas.GetComponent<ScoreManager>();
         collider2 = GetComponent<CircleCollider2D>();
+        shake = GetComponentInChildren<Shake>();
         hp = 5;
 
     }
@@ -88,11 +92,12 @@ public class PlayerMovement : MonoBehaviour
             //hit.Play();
             hp--;
             collider2.enabled = false;
-            //charachter.color = colorToTurnTo;
+            charachter.color = colorToTurnTo;
+            //charachter.color = Color.red;
             print(hp);
             scoreManager.Damaged();
             print("gothit");
-
+            shake.ShakeIt();
             Invoke("invincibility", 2f);
 
         }
@@ -102,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     void invincibility()
     {
         collider2.enabled = true;
-        charachter.color = Color.white;
+        charachter.color = normalColor;
     }
 
     public void hpUp()
