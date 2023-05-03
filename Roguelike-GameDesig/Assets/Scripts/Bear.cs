@@ -206,5 +206,11 @@ public class Bear : MonoBehaviour
         hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
         print(hp);
     }
+
+    public void HpDown()
+    {
+        hp--;
+        print("I got hit by balllllllllll");
+    }
 }
 

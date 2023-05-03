@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     float timeSaved;
     float timeLimit = 0.8f;
+    public bool enemy = false;
 
     private void Start()
     {
@@ -14,7 +15,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= timeSaved + timeLimit)
+        if (Time.time >= timeSaved + timeLimit && enemy)
         {
             Destroy(gameObject);
         }
@@ -26,5 +27,26 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
        
+    }
+
+    public void AddFire()
+    {
+        gameObject.AddComponent<ApplyFire>();
+    }
+
+    public void AddWater()
+    {
+        gameObject.AddComponent<ApplyWater>();
+    }
+
+    public void AddElectricity()
+    {
+        gameObject.AddComponent<ApplyElectricity>();
+    }
+
+    public void AddWind()
+    {
+        Rigidbody2D body = GetComponent<Rigidbody2D>();
+        body.mass = 999;
     }
 }

@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     public bool upgrades1 = true;
     public bool upgrades2 = true;
     public bool upgrades3 = true;
+    public bool upgrades4 = false;
     public bool shooting = false;
     ScoreManager scoreManager;
     
@@ -33,7 +34,8 @@ public class EnemySpawner : MonoBehaviour
     bool wave9 = false;
     bool wave11 = false;
     bool wave12 = false;
-    bool wave13 = false;
+    bool wave14 = false;
+    bool wave15 = false;
 
     EnemySpawner enemySpawner1;
     EnemySpawner enemySpawner2;
@@ -214,7 +216,7 @@ public class EnemySpawner : MonoBehaviour
                 waveCounter.text = waves.ToString();
             }
         }
-        if (waves == 13 && wave13 == false)
+        if (waves == 14 && wave14 == false)
         {
             if (enemiesOnField > 0)
             {
@@ -223,7 +225,20 @@ public class EnemySpawner : MonoBehaviour
             else if (enemiesOnField <= 0)
             {
                 ableToSpawn = true;
-                wave13 = true;
+                wave14 = true;
+                waveCounter.text = waves.ToString();
+            }
+        }
+        if (waves == 15 && wave15 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave15 = true;
                 waveCounter.text = waves.ToString();
             }
         }
@@ -261,7 +276,18 @@ public class EnemySpawner : MonoBehaviour
 
         }
 
-        if (waves >= 13 && enemiesOnField == 0)
+        if (waves == 13 && reachedWaveNumber == 13)
+        {
+            ableToSpawn = false;
+            if (upgrades4 && enemiesOnField <= 0)
+            {
+                scoreManager.RoundEnded();
+                upgrades4 = false;
+            }
+
+        }
+
+        if (waves >= 16 && enemiesOnField == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

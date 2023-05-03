@@ -8,19 +8,22 @@ public class Shooting : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject fireBullet;
-    public GameObject waterBullet;
+    /*public GameObject waterBullet;
     public GameObject windBullet;
-    public GameObject groundBullet;
+    public GameObject groundBullet;*/
     public GameObject bomb;
     public GameObject upgradeMenu;
     GameObject bulletPrefab;
     GameObject bulletPrefab2;
+    
     //public AudioSource shoot;
     public GameObject weaponChanger;
     public Text bombNumber;
     public Text bombTotalNumber;
     public Text bulletNumber;
     public Text bulletTotalNumber;
+    public Image gun1;
+    public Image gun2;
 
     public Transform rechargeBar;
     public SpriteRenderer rechargeSprite;
@@ -43,12 +46,17 @@ public class Shooting : MonoBehaviour
     float rechargeTime = 2f;
     float rechargeStart = 0f;
     bool recharging = false;
+    public Transform triangle;
+
+    public bool crossShooting = false;
+    float crossLastShot = 0f;
+    float delayBetweenCross = 1.5f;
 
     // Update is called once per frame
     private void Start()
     {
         bulletPrefab = fireBullet;
-        bulletPrefab2 = waterBullet;
+        //bulletPrefab2 = waterBullet;
     }
     void Update()
     {
@@ -64,17 +72,7 @@ public class Shooting : MonoBehaviour
         {
             ShootSpecial();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            fire = true;
-            //reload.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            fire = false;
-            //reload.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
+        /*if (Input.GetKeyDown(KeyCode.K))
         {
             MoreBombs();
         }
@@ -82,7 +80,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             MoreBullets();
-        }
+        }*/
 
         if (fire == true)
         {
@@ -97,6 +95,20 @@ public class Shooting : MonoBehaviour
         {
             rechargeAnim.SetBool("recharging", true);
             rechargeSprite.enabled = true;
+        }
+
+        if (crossShooting == true && Time.time > delayBetweenCross + crossLastShot)
+        {
+            crossLastShot = Time.time;
+            for (int i = 0; i < 4; i++)
+            {
+                GameObject bullet2 = Instantiate(bulletPrefab, triangle.position,firepoint.rotation * Quaternion.Euler(0,0,180+90*i));
+                Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
+                float horizontalForce = Mathf.Cos(1.5f * (i - 2));
+                float verticalForce = Mathf.Sin(1.5f * (i - 2));
+                rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -113,21 +125,12 @@ public class Shooting : MonoBehaviour
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
                 float horizontalForce = Mathf.Cos(initialAngle * (i-2));
                 float verticalForce = Mathf.Sin(initialAngle * (i - 2));
-                if (bulletPrefab == windBullet)
-                {
-                    rb2.AddForce(firepoint.right * bulletforce * horizontalForce* 999, ForceMode2D.Impulse);
-                    rb2.AddForce(firepoint.up * bulletforce * verticalForce * 999, ForceMode2D.Impulse);
-                }
-                else
-                {
-                    rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
-                    rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
-                }
-                
+                rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
             }
             
         }
-        else
+        /*else
         {
             //shoot.Play();
             timeLastShot = Time.time;
@@ -148,7 +151,7 @@ public class Shooting : MonoBehaviour
                     rb.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
                 }
             }
-        }
+        }*/
         //bullets--;
         //bulletsDown.Invoke();
 
@@ -172,38 +175,46 @@ public class Shooting : MonoBehaviour
         rechargeSprite.enabled = false;
     }
 
-    public void firePrimary()
+    /*public void firePrimary()
     {
         bulletPrefab = fireBullet;
+        gun1.color = Color.red;
     }
     public void waterPrimary()
     {
         bulletPrefab = waterBullet;
+        gun1.color = Color.blue;
     }
     public void windPrimary()
     {
         bulletPrefab = windBullet;
+        gun1.color = Color.white;
     }
     public void groundPrimary()
     {
         bulletPrefab = groundBullet;
+        gun1.color = Color.yellow;
     }
     public void fireSecondary()
     {
         bulletPrefab2 = fireBullet;
+        gun2.color = Color.red;
     }
     public void waterSecondary()
     {
         bulletPrefab2 = waterBullet;
+        gun2.color = Color.blue;
     }
     public void windSecondary()
     {
         bulletPrefab2 = windBullet;
+        gun2.color = Color.white;
     }
     public void groundSecondary()
     {
         bulletPrefab2 = groundBullet;
-    }
+        gun2.color = Color.yellow;
+    }*/
 
     public void ReloadBombs()
     {
@@ -234,5 +245,15 @@ public class Shooting : MonoBehaviour
     public void MoreSpeed()
     {
         bulletforce = bulletforce + 10f;
+    }
+
+    public void IsWind()
+    {
+        bulletforce *= 999;
+    }
+
+    public void CrossShooting()
+    {
+        crossShooting = true;
     }
 }

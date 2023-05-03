@@ -14,7 +14,7 @@ public class ApplyWater : MonoBehaviour
         {
             //enemy = collision.transform.parent.gameObject;
             script = collision.gameObject.GetComponent<AIPath>();
-            script.maxSpeed = 2;
+            script.maxSpeed = 4;
         }
         
     }

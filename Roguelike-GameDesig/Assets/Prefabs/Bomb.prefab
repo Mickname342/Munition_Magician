@@ -280,5 +280,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1603010498226723205, guid: adaae6a6de10bc14996e7ba973b2c690, type: 3}
   wind: {fileID: 8970093613790968897, guid: 47b4c87bdfec8f64097a8b6ab462b56f, type: 3}
-  elctricity: {fileID: 1603010498226723205, guid: e5f7d2dba7f75964995ad8b8b8b8b064, type: 3}
+  elctricity: {fileID: 1603010498226723205, guid: 3e581b72bada93c40897ae7ae15beea4, type: 3}
   waterStream: {fileID: 6310626815673279170, guid: 2e0ad28cbfc807e4b970107174d39845, type: 3}

@@ -23,6 +23,21 @@ public class ScoreManager : MonoBehaviour
     public RectTransform upgrade5pos;
     public RectTransform upgrade6pos;
     public RectTransform upgrade7pos;
+    public RectTransform upgrade8pos;
+    public RectTransform upgrade9pos;
+    public RectTransform upgrade10pos;
+    public RectTransform upgrade11pos;
+    public RectTransform upgrade12pos;
+    public RectTransform upgrade13pos;
+
+    bool fire = false;
+    bool water = false;
+    bool wind = false;
+    bool electricity = false;
+    bool balls = false;
+    bool cross = false;
+    bool contact = false;
+    bool electricPlayer = false;
     // Start is called before the first frame update
 
     int upgradeRandomiser1;
@@ -30,7 +45,7 @@ public class ScoreManager : MonoBehaviour
     int previousUpgrade1 = -1;
     int previousUpgrade2 = -1;
 
-    public int numberOfUpgrades = 7;
+    public int numberOfUpgrades = 12;
 
     int totalHp = 5;
     void Start()
@@ -67,9 +82,153 @@ public class ScoreManager : MonoBehaviour
         {
             upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
         }
+        if (fire == true)
+        {
+            while (upgradeRandomiser1 == 7)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 7)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (water == true)
+        {
+            while (upgradeRandomiser1 == 8)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 8)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (wind == true)
+        {
+            while (upgradeRandomiser1 == 9)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 9)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (electricity == true)
+        {
+            while (upgradeRandomiser1 == 10)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 10)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (balls == true)
+        {
+            while (upgradeRandomiser1 == 11)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 11)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (cross == true)
+        {
+            while (upgradeRandomiser1 == 12)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 12)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (contact == true)
+        {
+            while (upgradeRandomiser1 == 5)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 5)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
+        if (electricPlayer == true)
+        {
+            while (upgradeRandomiser1 == 6)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 6)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+        }
         while (upgradeRandomiser2 == upgradeRandomiser1)
         {
             upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            if (fire == true)
+            {
+                while (upgradeRandomiser2 == 7)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (water == true)
+            {
+                while (upgradeRandomiser2 == 8)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (wind == true)
+            {
+                while (upgradeRandomiser2 == 9)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (electricity == true)
+            {
+                while (upgradeRandomiser2 == 10)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (balls == true)
+            {
+                while (upgradeRandomiser2 == 11)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (cross == true)
+            {
+                while (upgradeRandomiser2 == 12)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (contact == true)
+            {
+                while (upgradeRandomiser2 == 5)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (electricPlayer == true)
+            {
+                while (upgradeRandomiser2 == 6)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
         }
         print("upgrade 1 nº: " + upgradeRandomiser1);
         print("upgrade 2 nº: " + upgradeRandomiser2);
@@ -96,6 +255,24 @@ public class ScoreManager : MonoBehaviour
             case 6:
                 upgrade7pos.position = posUpgrade1.position;
                 break;
+            case 7:
+                upgrade8pos.position = posUpgrade1.position;
+                break;
+            case 8:
+                upgrade9pos.position = posUpgrade1.position;
+                break;
+            case 9:
+                upgrade10pos.position = posUpgrade1.position;
+                break;
+            case 10:
+                upgrade11pos.position = posUpgrade1.position;
+                break;
+            case 11:
+                upgrade12pos.position = posUpgrade1.position;
+                break;
+            case 12:
+                upgrade13pos.position = posUpgrade1.position;
+                break;
         }
         switch (upgradeRandomiser2)
         {
@@ -120,6 +297,24 @@ public class ScoreManager : MonoBehaviour
             case 6:
                 upgrade7pos.position = posUpgrade2.position;
                 break;
+            case 7:
+                upgrade8pos.position = posUpgrade2.position;
+                break;
+            case 8:
+                upgrade9pos.position = posUpgrade2.position;
+                break;
+            case 9:
+                upgrade10pos.position = posUpgrade2.position;
+                break;
+            case 10:
+                upgrade11pos.position = posUpgrade2.position;
+                break;
+            case 11:
+                upgrade12pos.position = posUpgrade2.position;
+                break;
+            case 12:
+                upgrade13pos.position = posUpgrade2.position;
+                break;
         }
         //upgrade1Text.text = upgrade1.upgradeName;
         //upgrade2Text.text = upgrade2.upgradeName;
@@ -137,5 +332,52 @@ public class ScoreManager : MonoBehaviour
         upgrade5pos.position = defaultPos.position;
         upgrade6pos.position = defaultPos.position;
         upgrade7pos.position = defaultPos.position;
+        upgrade8pos.position = defaultPos.position;
+        upgrade9pos.position = defaultPos.position;
+        upgrade10pos.position = defaultPos.position;
+        upgrade11pos.position = defaultPos.position;
+        upgrade12pos.position = defaultPos.position;
+        upgrade13pos.position = defaultPos.position;
+
     }
+
+    public void AddFire()
+    {
+        fire = true;
+    }
+    public void AddWater()
+    {
+        water = true;
+    }
+    public void AddWind()
+    {
+        wind = true;
+        print("I added wind");
+    }
+    public void AddelEctricity()
+    {
+        electricity = true;
+    }
+
+    public void AddBalls() 
+    { 
+        balls = true;
+    }
+
+    public void AddCross()
+    {
+        cross = true;
+    }
+
+    public void AddContact()
+    {
+        contact = true;
+    }
+
+    public void PlayerElectricity()
+    {
+        electricPlayer = true;
+    }
+
 }
+

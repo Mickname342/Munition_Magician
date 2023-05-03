@@ -8,14 +8,36 @@ public class Bomb : MonoBehaviour
     public GameObject wind;
     public GameObject elctricity;
     public GameObject waterStream;
+    bool explodeOnContact;
+    public bool usuck = false;
+    private void Start()
+    {
+        explodeOnContact = false;
+    }
+
+    private void Update()
+    {
+        if (explodeOnContact == true)
+        {
+            print("fianlly I am " + explodeOnContact);
+            explodeOnContact=true;
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Fire") || collision.gameObject.CompareTag("DoubleDamage"))
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("DoubleDamage"))
         {
             GameObject exploding = Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("Wind"))
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+            print("I am colliding " + usuck);
+            Explode();
+            
+        }
+        /*else if (collision.gameObject.CompareTag("Wind"))
         {
             GameObject wind1 = Instantiate(wind, transform.position, transform.rotation);
             GameObject wind2 = Instantiate(wind, transform.position, transform.rotation);
@@ -45,6 +67,22 @@ public class Bomb : MonoBehaviour
         else if (collision.gameObject.CompareTag("Water"))
         {
             GameObject waterStream1 = Instantiate(waterStream, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }*/
+    }
+
+    public void CanExplode()
+    {
+        usuck = true;
+        print("I fucking suck " + usuck);
+    }
+
+    void Explode()
+    {
+        if (usuck == true)
+        {
+            print("WTF");
+            GameObject exploding = Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
