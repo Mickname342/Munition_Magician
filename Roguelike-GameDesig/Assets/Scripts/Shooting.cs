@@ -100,12 +100,12 @@ public class Shooting : MonoBehaviour
         if (crossShooting == true && Time.time > delayBetweenCross + crossLastShot)
         {
             crossLastShot = Time.time;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
-                GameObject bullet2 = Instantiate(bulletPrefab, triangle.position,firepoint.rotation * Quaternion.Euler(0,0,180+90*i));
+                GameObject bullet2 = Instantiate(bulletPrefab, triangle.position,firepoint.rotation * Quaternion.Euler(0,0,270+45*i));
                 Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-                float horizontalForce = Mathf.Cos(1.5f * (i - 2));
-                float verticalForce = Mathf.Sin(1.5f * (i - 2));
+                float horizontalForce = Mathf.Cos(0.75f * (i - 2));
+                float verticalForce = Mathf.Sin(0.75f * (i - 2));
                 rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
                 rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
             }

@@ -17,8 +17,8 @@ public class EnemySpawner : MonoBehaviour
     float enemyLimit = 4;
     float enemiesOnField = 0;
     int waves = 1;
-    int reachedWaveNumber = 4;
-    bool ableToSpawn = true;
+    int reachedWaveNumber = 1;
+    public bool ableToSpawn = false;
     public bool upgrades1 = true;
     public bool upgrades2 = true;
     public bool upgrades3 = true;
@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         scoreManager = canvas.GetComponent<ScoreManager>();
-        ableToSpawn = true;
+        ableToSpawn = false;
         enemySpawner1 = spawner1.GetComponent<EnemySpawner>();
         enemySpawner2 = spawner2.GetComponent<EnemySpawner>();
         enemySpawner3 = spawner3.GetComponent<EnemySpawner>();

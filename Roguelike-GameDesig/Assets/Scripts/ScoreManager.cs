@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
     public RectTransform defaultPos;
     public RectTransform posUpgrade1;
     public RectTransform posUpgrade2;
+    public RectTransform posUpgrade3;
     public RectTransform upgrade1pos;
     public RectTransform upgrade2pos;
     public RectTransform upgrade3pos;
@@ -42,10 +43,12 @@ public class ScoreManager : MonoBehaviour
 
     int upgradeRandomiser1;
     int upgradeRandomiser2;
+    int upgradeRandomiser3;
     int previousUpgrade1 = -1;
     int previousUpgrade2 = -1;
+    int previousUpgrade3 = -1;
 
-    public int numberOfUpgrades = 12;
+    public int numberOfUpgrades = 13;
 
     int totalHp = 5;
     void Start()
@@ -74,6 +77,7 @@ public class ScoreManager : MonoBehaviour
     {
         upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
         upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+        upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
         if (upgradeRandomiser1 == previousUpgrade1)
         {
             upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
@@ -81,6 +85,10 @@ public class ScoreManager : MonoBehaviour
         if (upgradeRandomiser2 == previousUpgrade2)
         {
             upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+        }
+        if (upgradeRandomiser3 == previousUpgrade3)
+        {
+            upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
         }
         if (fire == true)
         {
@@ -91,6 +99,10 @@ public class ScoreManager : MonoBehaviour
             while (upgradeRandomiser2 == 7)
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser3 == 7)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
             }
         }
         if (water == true)
@@ -103,6 +115,10 @@ public class ScoreManager : MonoBehaviour
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
             }
+            while (upgradeRandomiser3 == 8)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+            }
         }
         if (wind == true)
         {
@@ -113,6 +129,10 @@ public class ScoreManager : MonoBehaviour
             while (upgradeRandomiser2 == 9)
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser3 == 9)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
             }
         }
         if (electricity == true)
@@ -125,6 +145,10 @@ public class ScoreManager : MonoBehaviour
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
             }
+            while (upgradeRandomiser3 == 10)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+            }
         }
         if (balls == true)
         {
@@ -135,6 +159,10 @@ public class ScoreManager : MonoBehaviour
             while (upgradeRandomiser2 == 11)
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser3 == 11)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
             }
         }
         if (cross == true)
@@ -147,6 +175,10 @@ public class ScoreManager : MonoBehaviour
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
             }
+            while (upgradeRandomiser3 == 12)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+            }
         }
         if (contact == true)
         {
@@ -158,6 +190,10 @@ public class ScoreManager : MonoBehaviour
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
             }
+            while (upgradeRandomiser3 == 5)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+            }
         }
         if (electricPlayer == true)
         {
@@ -168,6 +204,10 @@ public class ScoreManager : MonoBehaviour
             while (upgradeRandomiser2 == 6)
             {
                 upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser3 == 6)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
             }
         }
         while (upgradeRandomiser2 == upgradeRandomiser1)
@@ -227,6 +267,66 @@ public class ScoreManager : MonoBehaviour
                 while (upgradeRandomiser2 == 6)
                 {
                     upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+        }
+        while (upgradeRandomiser3 == upgradeRandomiser1 || upgradeRandomiser3 == upgradeRandomiser2)
+        {
+            upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+            if (fire == true)
+            {
+                while (upgradeRandomiser3 == 7)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (water == true)
+            {
+                while (upgradeRandomiser3 == 8)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (wind == true)
+            {
+                while (upgradeRandomiser3 == 9)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (electricity == true)
+            {
+                while (upgradeRandomiser3 == 10)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (balls == true)
+            {
+                while (upgradeRandomiser3 == 11)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (cross == true)
+            {
+                while (upgradeRandomiser3 == 12)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (contact == true)
+            {
+                while (upgradeRandomiser3 == 5)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (electricPlayer == true)
+            {
+                while (upgradeRandomiser3 == 6)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
                 }
             }
         }
@@ -316,10 +416,53 @@ public class ScoreManager : MonoBehaviour
                 upgrade13pos.position = posUpgrade2.position;
                 break;
         }
+        switch (upgradeRandomiser3)
+        {
+            case 0:
+                upgrade1pos.position = posUpgrade3.position;
+                break;
+            case 1:
+                upgrade2pos.position = posUpgrade3.position;
+                break;
+            case 2:
+                upgrade3pos.position = posUpgrade3.position;
+                break;
+            case 3:
+                upgrade4pos.position = posUpgrade3.position;
+                break;
+            case 4:
+                upgrade5pos.position = posUpgrade3.position;
+                break;
+            case 5:
+                upgrade6pos.position = posUpgrade3.position;
+                break;
+            case 6:
+                upgrade7pos.position = posUpgrade3.position;
+                break;
+            case 7:
+                upgrade8pos.position = posUpgrade3.position;
+                break;
+            case 8:
+                upgrade9pos.position = posUpgrade3.position;
+                break;
+            case 9:
+                upgrade10pos.position = posUpgrade3.position;
+                break;
+            case 10:
+                upgrade11pos.position = posUpgrade3.position;
+                break;
+            case 11:
+                upgrade12pos.position = posUpgrade3.position;
+                break;
+            case 12:
+                upgrade13pos.position = posUpgrade3.position;
+                break;
+        }
         //upgrade1Text.text = upgrade1.upgradeName;
         //upgrade2Text.text = upgrade2.upgradeName;
         previousUpgrade1 = upgradeRandomiser1;
         previousUpgrade2 = upgradeRandomiser2;
+        previousUpgrade3 = upgradeRandomiser3;
         upgradeSelect.SetActive(true);
     }
 
