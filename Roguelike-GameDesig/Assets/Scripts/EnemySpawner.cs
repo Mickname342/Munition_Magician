@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     float lastSpawned = 0;
     float enemiesDefeated = 0;
     float enemiesSpawned = 0;
-    float enemyLimit = 3;
+    float enemyLimit = 4;
     float enemiesOnField = 0;
     int waves = 1;
     int reachedWaveNumber = 4;
@@ -31,6 +31,9 @@ public class EnemySpawner : MonoBehaviour
     bool wave6 = false;
     bool wave8 = false;
     bool wave9 = false;
+    bool wave11 = false;
+    bool wave12 = false;
+    bool wave13 = false;
 
     EnemySpawner enemySpawner1;
     EnemySpawner enemySpawner2;
@@ -184,6 +187,46 @@ public class EnemySpawner : MonoBehaviour
                 waveCounter.text = waves.ToString();
             }
         }
+        
+        if (waves == 11 && wave11 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave11 = true;
+                waveCounter.text = waves.ToString();
+            }
+        }
+        if (waves == 12 && wave2 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave12 = true;
+                waveCounter.text = waves.ToString();
+            }
+        }
+        if (waves == 13 && wave13 == false)
+        {
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            else if (enemiesOnField <= 0)
+            {
+                ableToSpawn = true;
+                wave13 = true;
+                waveCounter.text = waves.ToString();
+            }
+        }
 
         if (waves == 4 && reachedWaveNumber == 4 )
         {
@@ -218,7 +261,7 @@ public class EnemySpawner : MonoBehaviour
 
         }
 
-        if (waves >= 11 && enemiesOnField == 0)
+        if (waves >= 13 && enemiesOnField == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

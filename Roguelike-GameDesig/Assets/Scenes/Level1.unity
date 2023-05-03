@@ -1441,7 +1441,7 @@ GameObject:
   - component: {fileID: 81356371}
   - component: {fileID: 81356373}
   - component: {fileID: 81356372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1800,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94397586}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -2799,7 +2799,7 @@ GameObject:
   - component: {fileID: 128098959}
   - component: {fileID: 128098961}
   - component: {fileID: 128098960}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3529,7 +3529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 166832766}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chests
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3695,7 +3695,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182360824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -4353,7 +4353,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215808965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -4657,7 +4657,7 @@ GameObject:
   - component: {fileID: 240180827}
   - component: {fileID: 240180829}
   - component: {fileID: 240180828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4922,7 +4922,7 @@ GameObject:
   - component: {fileID: 252186428}
   - component: {fileID: 252186430}
   - component: {fileID: 252186429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5909,7 +5909,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371556400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -6279,7 +6279,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402577136}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -6367,7 +6367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 404222300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barrels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6696,6 +6696,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &425580396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1515927896732642071, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+  m_PrefabInstance: {fileID: 707961226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &443326822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7787,6 +7792,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7861,13 +7867,70 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -14.242724}
+  m_LocalPosition: {x: 0, y: 0, z: -200}
   m_LocalScale: {x: 1.4242724, y: 1.4242724, z: 1.4242724}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 335404036}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050a68022e774e54ca8cc289b58bc78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  start: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.000034207013
+      value: 0.000042342494
+      inSlope: 0.14861277
+      outSlope: 0.14861277
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.34894556
+      value: 0.051895022
+      inSlope: -0.2815318
+      outSlope: -0.2815318
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.40642977
+      value: 0.010984868
+      inSlope: -0.3650777
+      outSlope: -0.3650777
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0000014
+      value: 0.00001623988
+      inSlope: -0.018479029
+      outSlope: -0.018479029
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 0.2
+  camera2: {fileID: 519420032}
 --- !u!1 &519613847
 GameObject:
   m_ObjectHideFlags: 0
@@ -8040,7 +8103,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537155874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -8807,7 +8870,7 @@ GameObject:
   - component: {fileID: 572554199}
   - component: {fileID: 572554201}
   - component: {fileID: 572554200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_11 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9503,7 +9566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599546862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10259,7 +10322,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621052656}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -11350,7 +11413,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651672582}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -11476,7 +11539,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667619899}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -11734,7 +11797,7 @@ GameObject:
   - component: {fileID: 684012701}
   - component: {fileID: 684012703}
   - component: {fileID: 684012702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12153,6 +12216,18 @@ PrefabInstance:
     - target: {fileID: 3510854680120194379, guid: 0bb004b195c8f684596c74ef60946c0f, type: 3}
       propertyPath: charachter
       value: 
+      objectReference: {fileID: 618041282}
+    - target: {fileID: 3510854680120194379, guid: 0bb004b195c8f684596c74ef60946c0f, type: 3}
+      propertyPath: normalColor.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510854680120194379, guid: 0bb004b195c8f684596c74ef60946c0f, type: 3}
+      propertyPath: normalColor.g
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510854680120194379, guid: 0bb004b195c8f684596c74ef60946c0f, type: 3}
+      propertyPath: normalColor.r
+      value: 0.69803923
       objectReference: {fileID: 0}
     - target: {fileID: 3510854680120194379, guid: 0bb004b195c8f684596c74ef60946c0f, type: 3}
       propertyPath: gotHit.m_PersistentCalls.m_Calls.Array.size
@@ -12478,6 +12553,143 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 618041282}
   m_SourcePrefab: {fileID: 100100000, guid: 0bb004b195c8f684596c74ef60946c0f, type: 3}
+--- !u!1001 &707961226
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1030160983407092932, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: enemyBullet
+      value: 
+      objectReference: {fileID: 8970093613790968897, guid: b534715a495e1f147a3bda41f24dc327, type: 3}
+    - target: {fileID: 1030160983407092932, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 335404036}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642067, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1515927896732642071, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: m_Name
+      value: ShootingEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: hp
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 1270729400}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner
+      value: 
+      objectReference: {fileID: 517345400}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: shooter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner2
+      value: 
+      objectReference: {fileID: 766485951}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner3
+      value: 
+      objectReference: {fileID: 1539513023}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner4
+      value: 
+      objectReference: {fileID: 1867127822}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner5
+      value: 
+      objectReference: {fileID: 172715071}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner6
+      value: 
+      objectReference: {fileID: 1906114719}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner7
+      value: 
+      objectReference: {fileID: 916201176}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner8
+      value: 
+      objectReference: {fileID: 24435204}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: Spawner9
+      value: 
+      objectReference: {fileID: 949343773}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: spriteGoblin
+      value: 
+      objectReference: {fileID: 990425109}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: rechargePrefab
+      value: 
+      objectReference: {fileID: 1253809064}
+    - target: {fileID: 7563023838725586507, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 335404036}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
 --- !u!1 &708784573
 GameObject:
   m_ObjectHideFlags: 0
@@ -13770,7 +13982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809953399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.30158, y: -2.5092545, z: 0.80820876}
+  m_LocalPosition: {x: -21.30158, y: -2.5092545, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13916,7 +14128,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815402890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -14220,7 +14432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836679959}
   - component: {fileID: 836679958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dungeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14616,7 +14828,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851154481}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -15342,7 +15554,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915995466}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -16468,7 +16680,7 @@ GameObject:
   - component: {fileID: 983364988}
   - component: {fileID: 983364990}
   - component: {fileID: 983364989}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16587,6 +16799,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &990425109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8817984480488452058, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+  m_PrefabInstance: {fileID: 707961226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &993207642
 GameObject:
   m_ObjectHideFlags: 0
@@ -17583,7 +17800,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057915774}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -17843,7 +18060,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1078844701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -18147,7 +18364,7 @@ GameObject:
   - component: {fileID: 1106606522}
   - component: {fileID: 1106606524}
   - component: {fileID: 1106606523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18422,7 +18639,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116972426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -18737,7 +18954,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1131394886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -19135,7 +19352,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137723290}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -19509,7 +19726,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150095147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -19859,7 +20076,7 @@ GameObject:
   - component: {fileID: 1174467237}
   - component: {fileID: 1174467239}
   - component: {fileID: 1174467238}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20119,7 +20336,7 @@ GameObject:
   - component: {fileID: 1179262377}
   - component: {fileID: 1179262379}
   - component: {fileID: 1179262378}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20509,7 +20726,7 @@ GameObject:
   - component: {fileID: 1193975850}
   - component: {fileID: 1193975852}
   - component: {fileID: 1193975851}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21104,7 +21321,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204666135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -21702,7 +21919,7 @@ GameObject:
   - component: {fileID: 1240241577}
   - component: {fileID: 1240241579}
   - component: {fileID: 1240241578}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22216,6 +22433,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260814172}
   m_CullTransparentMesh: 1
+--- !u!4 &1270729400 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5252239215959574418, guid: 9d688a85d5f93ef45836b51dae95c484, type: 3}
+  m_PrefabInstance: {fileID: 707961226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1273483301
 GameObject:
   m_ObjectHideFlags: 0
@@ -22227,7 +22449,7 @@ GameObject:
   - component: {fileID: 1273483302}
   - component: {fileID: 1273483304}
   - component: {fileID: 1273483303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22947,7 +23169,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324177979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -23175,7 +23397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8029822077895547866, guid: c4aac57432cc5b5499246db1a9b4174b, type: 3}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAAIeyJSwsDbwIAACkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAU/CuMzoUxGELorTWE9JCECenk4ouQnrEGWfJIcoBk+O99km3s0BNi39fu6slfRChbAnParI3gT5oD+Tkg/kx+DLrgI5zoXqut+IQ2511wl/skGnJeqRMa8bEvs7oAZwT7pfbSJ0cIVkpk2hQrvodEW2cRzqi0gCGjna9WCH0NyAl/hgtfcsbTZO5Pn3haRIMLHhkoB6ZLnYwm8fR+vpjHTcUwGsXjOIrHi6awrqsUk7QogXsRvfLoOimqExUKbHK8GKalFLZhR9y5DOoTWtoKtWECFxTVBkrjkSeRg9jnznfsl79kmQXXmGHoeSkM2lb3Jb917WVB7aHm9kFl5SdNZotJoFV3ffovYTgO4czo4rEdPA6iXC7Y4ZWeGbWu53YfXva4B4+OVB7oTsJ7DupZr42uFMegM5UvrSxMlt3fq7YkB3bo8JrqDViVnemt5e3Veg2XIP+USFHsfGg0rYGt1MHysBFg8HL+IOGwL7Zpgahn8dfCG933F6sJPAhjHYYalcrT2+nK+FSyCp55NZVLtFEQ4IZ0CYpKd95gG3d7hzex3tibyAP1T6gZ3sTal3FTEuAuP4puQht9vF6WzfXxCWz+UjkpFHSkfeAZfUq0UvWK9T1py7aVySjrle0rwb+vFtnNeLRj89kc+H1E43g4ne/wmcTR3R3P7tiMkrB7QqFOKjc10cYevDXVNVe4Z+2XZbA2tAzrzg09rsVnofsEhcr0lhkA9fKthQWDQ/Bh8hUXaNAWnBMq3Df5SonU7AA8veanQenq5AxNu+4pKcWHdh5JSRI+JSnx8HWXNwY+BBz97LbZhVz+AVBLAwQUAAAICAAAACHsFu+zim0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UpJpikFSsrmpeWqKhUGisbGuiXmSkYGBsYGZWUqaWbJpolIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAACHsiUsLA28CAAApBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAACHsFu+zim0AAAB4AAAACQAkAAAAAAAAAAAAAAC8AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHQDAAAAAA==
+      value: UEsDBBQAAAgIAAAAIewYywgmcAIAACkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2jAQ/SuMzoWxcQiht9YhpIckTEgnF1+EtMYaZMkjyQGS4b93JdvYoSeW9/bj7Yf8RYSyFTCnzcoI/qQ5kJ8j4m3yY9STj3CkO6024hM6n3fBXeGdaPB5pU5oxGMfZnUJzgj2S+2kd44QrJXItSmXfAepts4inFNpASmjnY9WCH2NyBF/xgsfckJrOvfWJ1qLaHRGk4FyYHrX6WSa3NzNF/OkjRhHkyROoiRetIFNXK2YpGUF3DcxCI/irlLUOCpssPXxFNNSCtuqI+5Uhe5TWtkae0MHLih2GyTFEy+iALErnM84DH/JcwuuHYahp3thcGxNXvJbN7Msqd032j6orH2l6WwxDbKarE//OYzjQOdGl49d4TjyRVwh2P6Vnhi1bjDtIXw/0B5mdKByT7cS3gtQz3pldK04ks7UPrS2ML3v/156Swtg+x5vpF6BddUPvVtut1rfwzm0f0ylKLeemtw0wEbqMPJwEWBwOX9QcLgX26ZA1Kv4a+GN7oaH1RIPwliHVNul8vK2ujbelSzDzHw3tUu1URDgVnQFikp3WmMad73DK25Q9op5oP4JtcVbrnsZVyEB7v2j6Ipa68NlWbbQhyewxUvtpFDQi/bEM84p1Uo1JzacSRe2qU1O2SBsVwv+/bTIdsajLZvP5sDvIpok45v5Fp9JEt3e8vyWzSgJtycU9knluhHajge3pvrkCu+s+7KMVoZW4dy5oYeV+Cz1UKBQud4wA6BevqWwYLAIPky+5AIHtAHnhAr7Jl8ZkZrtgWcX/yx0ujw6Q7M+e0Yq8aGdRzKShk9JRjx8ueW1gQ8BB1+7S3Ym539QSwMEFAAACAgAAAAh7Bbvs4ptAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKSaYpBUrK5qXlqioVBorGxrol5kpGBgbGBmVlKmlmyaaJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7BjLCCZwAgAAKQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7Bbvs4ptAAAAeAAAAAkAJAAAAAAAAAAAAAAAvQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB1AwAAAAA=
       objectReference: {fileID: 0}
     - target: {fileID: 8029822077895547867, guid: c4aac57432cc5b5499246db1a9b4174b, type: 3}
       propertyPath: m_Name
@@ -23740,7 +23962,7 @@ GameObject:
   - component: {fileID: 1382162210}
   - component: {fileID: 1382162212}
   - component: {fileID: 1382162211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23870,7 +24092,7 @@ GameObject:
   - component: {fileID: 1382443485}
   - component: {fileID: 1382443487}
   - component: {fileID: 1382443486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24937,7 +25159,7 @@ GameObject:
   - component: {fileID: 1471410174}
   - component: {fileID: 1471410176}
   - component: {fileID: 1471410175}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_11 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25082,7 +25304,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484584042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -25333,7 +25555,7 @@ GameObject:
   - component: {fileID: 1497607430}
   - component: {fileID: 1497607432}
   - component: {fileID: 1497607431}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25509,7 +25731,7 @@ GameObject:
   - component: {fileID: 1501206920}
   - component: {fileID: 1501206922}
   - component: {fileID: 1501206921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26483,7 +26705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4643333a36db1464b85dfca678ccf6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 388944659}
+  enemy: {fileID: 425580396}
   canvas: {fileID: 336103444}
   waveCounter: {fileID: 1552956956}
   upgrades1: 0
@@ -26578,7 +26800,7 @@ GameObject:
   - component: {fileID: 1540706133}
   - component: {fileID: 1540706135}
   - component: {fileID: 1540706134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27713,7 +27935,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576793337}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -28192,7 +28414,7 @@ GameObject:
   - component: {fileID: 1599960247}
   - component: {fileID: 1599960249}
   - component: {fileID: 1599960248}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29221,7 +29443,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648825567}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -29838,7 +30060,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670425991}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -30028,7 +30250,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674905943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -31116,7 +31338,7 @@ GameObject:
   - component: {fileID: 1724891411}
   - component: {fileID: 1724891413}
   - component: {fileID: 1724891412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_11 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33387,7 +33609,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834736153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -36478,7 +36700,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997373815}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -36707,7 +36929,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014154427}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -37540,7 +37762,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070772852}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d5cc5d846d1928419e04795c0ff1560, type: 2}
   m_CullingMode: 0
@@ -37630,7 +37852,7 @@ GameObject:
   - component: {fileID: 2073942153}
   - component: {fileID: 2073942155}
   - component: {fileID: 2073942154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DungeonDecor_9 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
