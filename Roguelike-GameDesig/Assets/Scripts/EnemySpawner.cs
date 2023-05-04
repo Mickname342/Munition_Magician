@@ -14,28 +14,26 @@ public class EnemySpawner : MonoBehaviour
     float lastSpawned = 0;
     float enemiesDefeated = 0;
     float enemiesSpawned = 0;
-    float enemyLimit = 4;
+    float enemyLimit = 3;
     float enemiesOnField = 0;
-    int waves = 1;
-    int reachedWaveNumber = 1;
+    public int waves = 1;
+    public int reachedWaveNumber = 1;
     public bool ableToSpawn = false;
     public bool upgrades1 = true;
     public bool upgrades2 = true;
     public bool upgrades3 = true;
-    public bool upgrades4 = false;
     public bool shooting = false;
     ScoreManager scoreManager;
     
-    bool wave2 = false;
-    bool wave3 = false;
-    bool wave5 = false;
-    bool wave6 = false;
-    bool wave8 = false;
-    bool wave9 = false;
-    bool wave11 = false;
-    bool wave12 = false;
-    bool wave14 = false;
-    bool wave15 = false;
+    public bool wave2 = false;
+    public bool wave3 = false;
+    public bool wave5 = false;
+    public bool wave6 = false;
+    public bool wave8 = false;
+    public bool wave9 = false;
+    public bool wave11 = false;
+    public bool wave12 = false;
+
 
     EnemySpawner enemySpawner1;
     EnemySpawner enemySpawner2;
@@ -58,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         scoreManager = canvas.GetComponent<ScoreManager>();
-        ableToSpawn = false;
+        //ableToSpawn = false;
         enemySpawner1 = spawner1.GetComponent<EnemySpawner>();
         enemySpawner2 = spawner2.GetComponent<EnemySpawner>();
         enemySpawner3 = spawner3.GetComponent<EnemySpawner>();
@@ -121,6 +119,8 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave2 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
         if (waves == 3 && wave3 == false)
@@ -134,6 +134,8 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave3 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
         if (waves == 5 && wave5 == false)
@@ -147,6 +149,8 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave5 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
         if (waves == 6 && wave6 == false)
@@ -160,6 +164,8 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave6 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
         if (waves == 8 && wave8 == false)
@@ -173,6 +179,8 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave8 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
 
@@ -187,6 +195,8 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave9 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
         
@@ -201,9 +211,11 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave11 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
-        if (waves == 12 && wave2 == false)
+        if (waves == 12 && wave12 == false)
         {
             if (enemiesOnField > 0)
             {
@@ -214,34 +226,11 @@ public class EnemySpawner : MonoBehaviour
                 ableToSpawn = true;
                 wave12 = true;
                 waveCounter.text = waves.ToString();
+                enemiesDefeated = 0;
+                enemiesSpawned = 0;
             }
         }
-        if (waves == 14 && wave14 == false)
-        {
-            if (enemiesOnField > 0)
-            {
-                ableToSpawn = false;
-            }
-            else if (enemiesOnField <= 0)
-            {
-                ableToSpawn = true;
-                wave14 = true;
-                waveCounter.text = waves.ToString();
-            }
-        }
-        if (waves == 15 && wave15 == false)
-        {
-            if (enemiesOnField > 0)
-            {
-                ableToSpawn = false;
-            }
-            else if (enemiesOnField <= 0)
-            {
-                ableToSpawn = true;
-                wave15 = true;
-                waveCounter.text = waves.ToString();
-            }
-        }
+        
 
         if (waves == 4 && reachedWaveNumber == 4 )
         {
@@ -276,18 +265,7 @@ public class EnemySpawner : MonoBehaviour
 
         }
 
-        if (waves == 13 && reachedWaveNumber == 13)
-        {
-            ableToSpawn = false;
-            if (upgrades4 && enemiesOnField <= 0)
-            {
-                scoreManager.RoundEnded();
-                upgrades4 = false;
-            }
-
-        }
-
-        if (waves >= 16 && enemiesOnField == 0)
+        if (waves >= 13)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -306,6 +284,8 @@ public class EnemySpawner : MonoBehaviour
         reachedWaveNumber = reachedWaveNumber + 3;
         print("i've reached wave nº: " + reachedWaveNumber);
         waveCounter.text = waves.ToString();
+        enemiesDefeated = 0;
+        enemiesSpawned = 0;
         //waves++;
         //upgrades = true;
     }
