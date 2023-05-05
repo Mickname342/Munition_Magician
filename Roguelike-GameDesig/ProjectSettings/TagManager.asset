@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Water
   - Bomb
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - EnemyBullets
   - Enemy
   - CircleThings
-  - 
+  - Shield
   - 
   - 
   - 

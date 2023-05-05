@@ -30,6 +30,7 @@ public class ScoreManager : MonoBehaviour
     public RectTransform upgrade11pos;
     public RectTransform upgrade12pos;
     public RectTransform upgrade13pos;
+    public RectTransform upgrade14pos;
 
     bool fire = false;
     bool water = false;
@@ -39,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     bool cross = false;
     bool contact = false;
     bool electricPlayer = false;
+    bool bigBullet = false;
     // Start is called before the first frame update
 
     int upgradeRandomiser1;
@@ -48,7 +50,7 @@ public class ScoreManager : MonoBehaviour
     int previousUpgrade2 = -1;
     int previousUpgrade3 = -1;
 
-    public int numberOfUpgrades = 13;
+    public int numberOfUpgrades = 14;
 
     int totalHp = 5;
     void Start()
@@ -71,6 +73,11 @@ public class ScoreManager : MonoBehaviour
     public void HpRecover()
     {
         totalHp = 5;
+    }
+
+    public void RegainHP()
+    {
+        totalHp++;
     }
 
     public void RoundEnded()
@@ -180,6 +187,21 @@ public class ScoreManager : MonoBehaviour
                 upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
             }
         }
+        if (bigBullet == true)
+        {
+            while (upgradeRandomiser1 == 13)
+            {
+                upgradeRandomiser1 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser2 == 13)
+            {
+                upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+            }
+            while (upgradeRandomiser3 == 13)
+            {
+                upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+            }
+        }
         if (contact == true)
         {
             while (upgradeRandomiser1 == 5)
@@ -255,6 +277,13 @@ public class ScoreManager : MonoBehaviour
                     upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
                 }
             }
+            if (bigBullet == true)
+            {
+                while (upgradeRandomiser2 == 13)
+                {
+                    upgradeRandomiser2 = Random.Range(0, numberOfUpgrades);
+                }
+            }
             if (contact == true)
             {
                 while (upgradeRandomiser2 == 5)
@@ -311,6 +340,13 @@ public class ScoreManager : MonoBehaviour
             if (cross == true)
             {
                 while (upgradeRandomiser3 == 12)
+                {
+                    upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
+                }
+            }
+            if (bigBullet == true)
+            {
+                while (upgradeRandomiser3 == 13)
                 {
                     upgradeRandomiser3 = Random.Range(0, numberOfUpgrades);
                 }
@@ -373,6 +409,9 @@ public class ScoreManager : MonoBehaviour
             case 12:
                 upgrade13pos.position = posUpgrade1.position;
                 break;
+            case 13:
+                upgrade14pos.position = posUpgrade1.position;
+                break;
         }
         switch (upgradeRandomiser2)
         {
@@ -415,6 +454,9 @@ public class ScoreManager : MonoBehaviour
             case 12:
                 upgrade13pos.position = posUpgrade2.position;
                 break;
+            case 13:
+                upgrade14pos.position = posUpgrade2.position;
+                break;
         }
         switch (upgradeRandomiser3)
         {
@@ -456,6 +498,9 @@ public class ScoreManager : MonoBehaviour
                 break;
             case 12:
                 upgrade13pos.position = posUpgrade3.position;
+                break;
+            case 13:
+                upgrade14pos.position = posUpgrade3.position;
                 break;
         }
         //upgrade1Text.text = upgrade1.upgradeName;
@@ -520,6 +565,11 @@ public class ScoreManager : MonoBehaviour
     public void PlayerElectricity()
     {
         electricPlayer = true;
+    }
+
+    public void AddBigBullet()
+    {
+        bigBullet = true;
     }
 
 }

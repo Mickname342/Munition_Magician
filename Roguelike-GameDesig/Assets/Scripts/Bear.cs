@@ -14,10 +14,12 @@ public class Bear : MonoBehaviour
     public UnityEvent dead;
     //public AudioSource roar;
     public GameObject rechargePrefab;
+    public GameObject potionPrefab;
     public Animator anim;
     public AIPath aipath;
     public SpriteRenderer spriteRenderer;
     int random;
+    int randomPotion;
     public GameObject TheEnemy;
     public Transform TheEnemyTransform;
     public Transform playerTransform;
@@ -41,6 +43,8 @@ public class Bear : MonoBehaviour
     public GameObject Spawner8;
     public GameObject Spawner9;
     public bool shooter = false;
+    public bool shield = false;
+    public GameObject theShield;
 
     public GameObject fire;
     public GameObject electricity;
@@ -54,6 +58,7 @@ public class Bear : MonoBehaviour
     private void Start()
     {
         random = Random.Range(0,10);
+        randomPotion = Random.Range(0,25);
         hpBar.localScale = new Vector2(maxHp/5, 1);
         enemySpawner = Spawner.GetComponent<EnemySpawner>();
         enemySpawner2 = Spawner2.GetComponent<EnemySpawner>();
@@ -130,6 +135,10 @@ public class Bear : MonoBehaviour
             {
                 Instantiate(rechargePrefab, transform.position, Quaternion.identity);
             }
+            if (randomPotion <= 1)
+            {
+                Instantiate(potionPrefab, transform.position, Quaternion.identity);
+            }
             if (shooter)
             {
                 enemySpawner3.SpawnShooter();
@@ -180,6 +189,11 @@ public class Bear : MonoBehaviour
         fire.SetActive(true);
         lastBurned = Time.time;
         burning = true;
+        if (shield == true)
+        {
+            theShield.SetActive(false);
+            shield = false;
+        }
     }
 
     public void ApplyWind(Transform bulletTransform)
@@ -192,9 +206,13 @@ public class Bear : MonoBehaviour
 
     public void ApplyElectricity()
     {
-        GameObject electricBall = Instantiate(electricity,transform.position + new Vector3 (0,0,12),transform.rotation);
-        electricBall.transform.parent = gameObject.transform;
-        electricBall.gameObject.layer = LayerMask.NameToLayer("Bullets");
+        if (shield == false)
+        {
+            GameObject electricBall = Instantiate(electricity, transform.position + new Vector3(0, 0, 12), transform.rotation);
+            electricBall.transform.parent = gameObject.transform;
+            electricBall.gameObject.layer = LayerMask.NameToLayer("Bullets");
+        }
+        
         //Collider2D ballCollision = electricBall.GetComponent<Collider2D>();
         //ballCollision.isTrigger = true;
         

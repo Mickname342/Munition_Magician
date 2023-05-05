@@ -116,6 +116,16 @@ public class PlayerMovement : MonoBehaviour
         scoreManager.HpRecover();
     }
 
+    public void HpRevocer()
+    {
+        if (hp < 5)
+        {
+            hp++;
+            scoreManager.RegainHP();
+        }
+        
+    }
+
     public void IncreaseSpeed()
     {
         speed++;

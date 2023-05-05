@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
 {
     public Transform firepoint;
     public GameObject fireBullet;
+    public GameObject bigBullet;
     /*public GameObject waterBullet;
     public GameObject windBullet;
     public GameObject groundBullet;*/
@@ -43,6 +44,9 @@ public class Shooting : MonoBehaviour
     
     int bullets = 60;
     int totalBullets = 60;
+    int bulletsForUpgrade = 0;
+    int bulletsForCrossUpgrade = 0;
+    public bool thirdBulletUpgrade = false;
     float rechargeTime = 2f;
     float rechargeStart = 0f;
     bool recharging = false;
@@ -100,22 +104,44 @@ public class Shooting : MonoBehaviour
         if (crossShooting == true && Time.time > delayBetweenCross + crossLastShot)
         {
             crossLastShot = Time.time;
-            for (int i = 0; i < 8; i++)
+            if(bulletsForCrossUpgrade < 2)
             {
-                GameObject bullet2 = Instantiate(bulletPrefab, triangle.position,firepoint.rotation * Quaternion.Euler(0,0,270+45*i));
-                Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-                float horizontalForce = Mathf.Cos(0.75f * (i - 2));
-                float verticalForce = Mathf.Sin(0.75f * (i - 2));
-                rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
-                rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+                for (int i = 0; i < 8; i++)
+                {
+                    GameObject bullet2 = Instantiate(bulletPrefab, triangle.position, firepoint.rotation * Quaternion.Euler(0, 0, 270 + 45 * i));
+                    Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
+                    float horizontalForce = Mathf.Cos(0.75f * (i - 2));
+                    float verticalForce = Mathf.Sin(0.75f * (i - 2));
+                    rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                    rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+                }
             }
+
+            if (thirdBulletUpgrade)
+            {
+                bulletsForCrossUpgrade++;
+                if(bulletsForCrossUpgrade >= 3)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        GameObject bullet2 = Instantiate(bigBullet, triangle.position, firepoint.rotation * Quaternion.Euler(0, 0, 270 + 45 * i));
+                        Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
+                        float horizontalForce = Mathf.Cos(0.75f * (i - 2));
+                        float verticalForce = Mathf.Sin(0.75f * (i - 2));
+                        rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                        rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+                        bulletsForCrossUpgrade = 0;
+                    }
+                }
+            }
+            
         }
     }
 
     void Shoot()
     {
         bullets--;
-        if (fire)
+        if (fire && bulletsForUpgrade<2)
         {
             //shoot.Play();
             timeLastShot = Time.time;
@@ -129,6 +155,24 @@ public class Shooting : MonoBehaviour
                 rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
             }
             
+        }
+        if (thirdBulletUpgrade)
+        {
+            bulletsForUpgrade++;
+            if (bulletsForUpgrade >= 3)
+            {
+                timeLastShot = Time.time;
+                for (int i = 0; i < currentBullets; i++)
+                {
+                    GameObject bullet2 = Instantiate(bigBullet, firepoint.position, firepoint.rotation);
+                    Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
+                    float horizontalForce = Mathf.Cos(initialAngle * (i - 2));
+                    float verticalForce = Mathf.Sin(initialAngle * (i - 2));
+                    rb2.AddForce(firepoint.right * bulletforce * horizontalForce, ForceMode2D.Impulse);
+                    rb2.AddForce(firepoint.up * bulletforce * verticalForce, ForceMode2D.Impulse);
+                    bulletsForUpgrade = 0;
+                }
+            }
         }
         /*else
         {
@@ -255,5 +299,10 @@ public class Shooting : MonoBehaviour
     public void CrossShooting()
     {
         crossShooting = true;
+    }
+
+    public void BigBulletActive()
+    {
+        thirdBulletUpgrade = true;
     }
 }

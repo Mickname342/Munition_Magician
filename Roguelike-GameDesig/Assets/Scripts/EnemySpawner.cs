@@ -8,13 +8,14 @@ public class EnemySpawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject enemy;
+    public GameObject bigEnemy;
     public GameObject canvas;
     public Text waveCounter;
     float timeToSpawn = 6.5f;
     float lastSpawned = 0;
     float enemiesDefeated = 0;
     float enemiesSpawned = 0;
-    float enemyLimit = 3;
+    public float enemyLimit = 3;
     float enemiesOnField = 0;
     public int waves = 1;
     public int reachedWaveNumber = 1;
@@ -99,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         if (enemiesDefeated >= enemyLimit * 2)
-        {
+        { 
             enemiesDefeated = 0;
             enemiesSpawned = 0;
             enemyLimit = enemyLimit + 1;
@@ -305,5 +306,10 @@ public class EnemySpawner : MonoBehaviour
     {
         enemiesOnField++;
         print("enemies onField: " + enemiesOnField);
+    }
+
+    public void ChangeEnemy()
+    {
+        enemy = bigEnemy;
     }
 }

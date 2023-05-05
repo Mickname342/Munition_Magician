@@ -12,9 +12,14 @@ public class ApplyElectricity : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            print("I am an " + collision.gameObject.tag);
             enemy = collision.transform.GetChild(0).gameObject;
             script = enemy.GetComponent<Bear>();
             script.ApplyElectricity();
+        }
+        else if (collision.gameObject.CompareTag("Shield"))
+        {
+
         }
 
     }
