@@ -9,6 +9,7 @@ public class Shooting : MonoBehaviour
     public Transform firepoint;
     public GameObject fireBullet;
     public GameObject bigBullet;
+    public ParticleSystem shootingParticles;
     /*public GameObject waterBullet;
     public GameObject windBullet;
     public GameObject groundBullet;*/
@@ -17,7 +18,8 @@ public class Shooting : MonoBehaviour
     GameObject bulletPrefab;
     GameObject bulletPrefab2;
     
-    //public AudioSource shoot;
+    public AudioSource shoot;
+    public AudioSource crossShootAudio;
     public GameObject weaponChanger;
     public Text bombNumber;
     public Text bombTotalNumber;
@@ -71,6 +73,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && bullets > 0)
         {
             Shoot();
+            shootingParticles.Play();
         }
         if (Input.GetKeyDown(KeyCode.Mouse1) && Time.time > timeLastBullet + delayBetweenShots && currentBombs > 0)
         {
@@ -104,6 +107,7 @@ public class Shooting : MonoBehaviour
         if (crossShooting == true && Time.time > delayBetweenCross + crossLastShot)
         {
             crossLastShot = Time.time;
+            crossShootAudio.Play();
             if(bulletsForCrossUpgrade < 2)
             {
                 for (int i = 0; i < 8; i++)
@@ -141,9 +145,9 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         bullets--;
+        shoot.Play();
         if (fire && bulletsForUpgrade<2)
         {
-            //shoot.Play();
             timeLastShot = Time.time;
             for(int i = 0; i < currentBullets; i++)
             {
@@ -218,47 +222,6 @@ public class Shooting : MonoBehaviour
         rechargeAnim.SetBool("recharging", false);
         rechargeSprite.enabled = false;
     }
-
-    /*public void firePrimary()
-    {
-        bulletPrefab = fireBullet;
-        gun1.color = Color.red;
-    }
-    public void waterPrimary()
-    {
-        bulletPrefab = waterBullet;
-        gun1.color = Color.blue;
-    }
-    public void windPrimary()
-    {
-        bulletPrefab = windBullet;
-        gun1.color = Color.white;
-    }
-    public void groundPrimary()
-    {
-        bulletPrefab = groundBullet;
-        gun1.color = Color.yellow;
-    }
-    public void fireSecondary()
-    {
-        bulletPrefab2 = fireBullet;
-        gun2.color = Color.red;
-    }
-    public void waterSecondary()
-    {
-        bulletPrefab2 = waterBullet;
-        gun2.color = Color.blue;
-    }
-    public void windSecondary()
-    {
-        bulletPrefab2 = windBullet;
-        gun2.color = Color.white;
-    }
-    public void groundSecondary()
-    {
-        bulletPrefab2 = groundBullet;
-        gun2.color = Color.yellow;
-    }*/
 
     public void ReloadBombs()
     {

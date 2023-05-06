@@ -1112,15 +1112,11 @@ MonoBehaviour:
   charachter: {fileID: 1249574329756986095}
   colorToTurnTo: {r: 1, g: 0, b: 0, a: 1}
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  gotHit:
-    m_PersistentCalls:
-      m_Calls: []
-  hpGained:
-    m_PersistentCalls:
-      m_Calls: []
   hit: {fileID: 0}
+  healing: {fileID: 0}
   canvas: {fileID: 0}
   camera: {fileID: 0}
+  heartAnimator: {fileID: 0}
   speed: 7
   hp: 5
 --- !u!114 &6640432000293925200
@@ -1137,8 +1133,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firepoint: {fileID: 5774465159640093370}
   fireBullet: {fileID: 8970093613790968897, guid: 43c08637cb3903a448a0ff1b3bf2f8d9, type: 3}
+  bigBullet: {fileID: 0}
+  shootingParticles: {fileID: 0}
   bomb: {fileID: 8970093613790968897, guid: 375510ebe87524d41b1c9d39b7c8d686, type: 3}
   upgradeMenu: {fileID: 0}
+  shoot: {fileID: 0}
+  crossShootAudio: {fileID: 0}
   weaponChanger: {fileID: 0}
   bombNumber: {fileID: 0}
   bombTotalNumber: {fileID: 0}
@@ -1150,6 +1150,9 @@ MonoBehaviour:
   rechargeSprite: {fileID: 4687792397531491035}
   rechargeAnim: {fileID: 8835888300472464762}
   bulletforce: 20
+  thirdBulletUpgrade: 0
+  triangle: {fileID: 0}
+  crossShooting: 0
 --- !u!212 &1249574329756986095
 SpriteRenderer:
   m_ObjectHideFlags: 0

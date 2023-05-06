@@ -13,15 +13,15 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer charachter;
     public Color colorToTurnTo = Color.white;
     public Color normalColor = Color.white;
-    public UnityEvent gotHit;
-    public UnityEvent hpGained;
     public AudioSource hit;
+    public AudioSource healing;
     ScoreManager scoreManager;
     public GameObject canvas;
     public GameObject camera;
     Shake shake;
+    public Animator heartAnimator;
 
-    [SerializeField] float speed = 5f;
+    [SerializeField] float speed = 9f;
 
     float mx;
     float my;
@@ -93,10 +93,11 @@ public class PlayerMovement : MonoBehaviour
             hp--;
             collider2.enabled = false;
             charachter.color = colorToTurnTo;
+            hit.Play();
             //charachter.color = Color.red;
-            print(hp);
+            //print(hp);
             scoreManager.Damaged();
-            print("gothit");
+            //print("gothit");
             shake.ShakeIt();
             Invoke("invincibility", 2f);
 
@@ -121,6 +122,8 @@ public class PlayerMovement : MonoBehaviour
         if (hp < 5)
         {
             hp++;
+            heartAnimator.SetBool("hpUP", true);
+            healing.Play();
             scoreManager.RegainHP();
         }
         
@@ -128,6 +131,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        speed++;
+        speed = speed + 4;
     }
 }

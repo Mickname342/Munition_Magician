@@ -13,20 +13,17 @@ public class WaveManager : MonoBehaviour
     public GameObject normalSpawner5;
     public GameObject normalSpawner6;
     public GameObject normalSpawner7;
-    public GameObject normalSpawner8;
-    public GameObject normalSpawner9;
     public GameObject wall1;
     public GameObject wall2;
 
-    public EnemySpawner enemySpawner1;
-    public EnemySpawner enemySpawner2;
-    public EnemySpawner enemySpawner3;
-    public EnemySpawner enemySpawner4;
-    public EnemySpawner enemySpawner5;
-    public EnemySpawner enemySpawner6;
-    public EnemySpawner enemySpawner7;
-    public EnemySpawner enemySpawner8;
-    public EnemySpawner enemySpawner9;
+    EnemySpawner enemySpawner1;
+    EnemySpawner enemySpawner2;
+    EnemySpawner enemySpawner3;
+    EnemySpawner enemySpawner4;
+    EnemySpawner enemySpawner5;
+    EnemySpawner enemySpawner6;
+    EnemySpawner enemySpawner7;
+
 
 
     int timesActivated = 0;
@@ -40,8 +37,7 @@ public class WaveManager : MonoBehaviour
         enemySpawner5 = normalSpawner5.GetComponent<EnemySpawner>();
         enemySpawner6 = normalSpawner6.GetComponent<EnemySpawner>();
         enemySpawner7 = normalSpawner7.GetComponent<EnemySpawner>();
-        enemySpawner8 = normalSpawner8.GetComponent<EnemySpawner>();
-        enemySpawner9 = normalSpawner9.GetComponent<EnemySpawner>();
+
     }
 
     // Update is called once per frame
@@ -63,10 +59,11 @@ public class WaveManager : MonoBehaviour
         }
         if (timesActivated == 4)
         {
-            enemySpawner8.ChangeEnemy();
-            enemySpawner9.ChangeEnemy();
             enemySpawner3.ChangeEnemy();
             enemySpawner4.ChangeEnemy();
+            enemySpawner5.ChangeEnemy();
+            enemySpawner6.ChangeEnemy();
+            enemySpawner7.ChangeEnemy();
         }
     }
 

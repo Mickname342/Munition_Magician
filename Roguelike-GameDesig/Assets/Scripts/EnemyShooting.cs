@@ -11,6 +11,7 @@ public class EnemyShooting : MonoBehaviour
     public Transform shootingBar;
     public Transform Enemy;
     public Transform spriteGoblin;
+    public AudioSource shoot;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class EnemyShooting : MonoBehaviour
     public void Shoot()
     {
         timeLastShot = Time.time;
+        shoot.Play();
         float angle = Mathf.Atan2(playerTransform.position.y - transform.position.y, playerTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
         print(angle);
         GameObject bulletShot = Instantiate(enemyBullet, transform.position, Quaternion.Euler(0, 0, angle));

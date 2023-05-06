@@ -10,9 +10,11 @@ public class Bear : MonoBehaviour
     public int maxHp = 10;
     public int damage;
     public Transform hpBar;
-    public UnityEvent activate;
-    public UnityEvent dead;
-    //public AudioSource roar;
+    public SpriteRenderer enemyRenderer;
+    public Color slowdown;
+    public Color gotHit;
+    Color goBack = Color.white;
+    public AudioSource hit;
     public GameObject rechargePrefab;
     public GameObject potionPrefab;
     public Animator anim;
@@ -50,15 +52,15 @@ public class Bear : MonoBehaviour
     public GameObject electricity;
     public Transform spriteGoblin;
 
-    bool burning = false;
+    public bool burning = false;
     float lastBurned = 0;
-    float delayBurns = 0.2f;
+    float delayBurns = 1f;
     int knockbackForce = 200;
 
     private void Start()
     {
         random = Random.Range(0,10);
-        randomPotion = Random.Range(0,25);
+        randomPotion = Random.Range(0,45);
         hpBar.localScale = new Vector2(maxHp/5, 1);
         enemySpawner = Spawner.GetComponent<EnemySpawner>();
         enemySpawner2 = Spawner2.GetComponent<EnemySpawner>();
@@ -74,13 +76,16 @@ public class Bear : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        print("I am Getting hit");
+        //print("I am Getting hit");
         if (!collision.gameObject.CompareTag("Player"))
         {
             if (collision.gameObject.CompareTag("DoubleDamage"))
             {
                 hp = hp - 4;
-                hpBar.localScale = new Vector2(hpBar.localScale.x - 1/5f * 4f, 1);
+                hpBar.localScale = new Vector2(hpBar.localScale.x - 1/hp * 4f, 1);
+                enemyRenderer.color = gotHit;
+                hit.Play();
+                Invoke("IGotHit", 0.3f);
             }
             else if (collision.gameObject.CompareTag("Bomb"))
             {
@@ -89,33 +94,24 @@ public class Bear : MonoBehaviour
             else
             {
                 hp--;
-                hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
-                print(hp);
+                hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / hp, 1);
+                enemyRenderer.color = gotHit;
+                hit.Play();
+                Invoke("IGotHit", 0.3f);
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        //activate.Invoke();
-        //anim.SetBool("Active", true);
-        /*if (other.CompareTag("Player"))
-        {
-            float angle = Mathf.Atan2( playerTransform.position.y - transform.position.y, playerTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
-            print(angle);
-            GameObject bulletShot = Instantiate(enemyBullet,transform.position, Quaternion.Euler(0,0,angle));
-            Rigidbody2D rb = bulletShot.GetComponent<Rigidbody2D>();
-            float xcomponent = Mathf.Cos(angle * Mathf.PI / 180) * 10;
-            float ycomponent = Mathf.Sin(angle * Mathf.PI / 180) * 10;
-            Vector3 forceapplied = new Vector3(xcomponent, ycomponent, 0);
-            print(forceapplied);
-            rb.AddForce(forceapplied, ForceMode2D.Impulse);
-        }*/
-
-    }
-
     private void Update()
     {
+        if (hp == 1.5f)
+        {
+            hp = 2;
+        }
+        if (hp == 2.5f)
+        {
+            hp = 3;
+        }
         float angle = Mathf.Atan2(playerTransform.position.y - transform.position.y, playerTransform.position.x - transform.position.x) * Mathf.Rad2Deg;
         spriteGoblin.rotation = Quaternion.Euler(0, 0, angle + 180);
         TheEnemyTransform = gameObject.transform;
@@ -158,22 +154,22 @@ public class Bear : MonoBehaviour
         
         if (burning)
         {
-            for (int i = 0; i <= 4; i++)
+            print("I " + gameObject + " am getting burned");
+            if (Time.time > lastBurned + delayBurns)
             {
-                if (Time.time > lastBurned + delayBurns)
-                {
-                    hp--;
-                    hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
-                    print("current hp: " + hp);
-                    lastBurned = Time.time;
-                }
-
-                if (i >= 4)
-                {
-                    burning = false;
-                    fire.SetActive(false);
-                }
+                hp = hp-2;
+                hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / hp, 1);
+                print("current hp burning: " + hp);
+                lastBurned = Time.time;
+                burning = false;
             }
+
+            /*if (i > 2)
+            {
+                burning = false;
+                fire.SetActive(false);
+                
+            }*/
         }
 
     }
@@ -181,7 +177,7 @@ public class Bear : MonoBehaviour
     public void ExtraDamage()
     {
         hp = hp/2;
-        print("Amount of Damage: " + hp);
+       //print("Amount of Damage: " + hp);
     }
 
     public void ApplyFire()
@@ -221,14 +217,32 @@ public class Bear : MonoBehaviour
     public void HitByElectric()
     {
         hp--;
-        hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / 5f, 1);
-        print(hp);
+        hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / hp, 1);
+        enemyRenderer.color = gotHit;
+        hit.Play();
+        Invoke("IGotHit", 0.3f);
+        //print(hp);
     }
 
     public void HpDown()
     {
         hp--;
-        print("I got hit by balllllllllll");
+        hpBar.localScale = new Vector2(hpBar.localScale.x - 1 / hp, 1);
+        enemyRenderer.color = gotHit;
+        hit.Play();
+        Invoke("IGotHit", 0.3f);
+        //print("I got hit by balllllllllll");
+    }
+
+    public void ApplyWater()
+    {
+        enemyRenderer.color = slowdown;
+        goBack = slowdown;
+    }
+
+    void IGotHit()
+    {
+        enemyRenderer.color = goBack;
     }
 }
 

@@ -26,5 +26,6 @@ public class PotionHeal : MonoBehaviour
             playerMovement.HpRevocer();
             Destroy(gameObject);
         }
+        
     }
 }

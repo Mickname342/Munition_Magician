@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     float lastSpawned = 0;
     float enemiesDefeated = 0;
     float enemiesSpawned = 0;
-    public float enemyLimit = 3;
+    public float enemyLimit = 2;
     float enemiesOnField = 0;
     public int waves = 1;
     public int reachedWaveNumber = 1;
@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
     public bool wave9 = false;
     public bool wave11 = false;
     public bool wave12 = false;
+    public bool wave13 = false;
 
 
     EnemySpawner enemySpawner1;
@@ -106,7 +107,7 @@ public class EnemySpawner : MonoBehaviour
             enemyLimit = enemyLimit + 1;
             timeToSpawn = timeToSpawn - 1/waves;
             waves++;
-            print("wave number " + waves);
+            //print("wave number " + waves);
         }
 
         if( waves == 2 && wave2 == false)
@@ -266,9 +267,16 @@ public class EnemySpawner : MonoBehaviour
 
         }
 
-        if (waves >= 13)
+        if (waves >= 13 && wave13 == false)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (enemiesOnField > 0)
+            {
+                ableToSpawn = false;
+            }
+            if(enemiesOnField <= 0)
+            {
+               SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
 
@@ -276,14 +284,14 @@ public class EnemySpawner : MonoBehaviour
     {
         enemiesDefeated++;
         enemiesOnField--;
-        print("you defeated: " + enemiesDefeated);
+        //print("you defeated: " + enemiesDefeated);
     }
 
     public void ResetTime()
     {
         ableToSpawn = true;
         reachedWaveNumber = reachedWaveNumber + 3;
-        print("i've reached wave nº: " + reachedWaveNumber);
+       // print("i've reached wave nº: " + reachedWaveNumber);
         waveCounter.text = waves.ToString();
         enemiesDefeated = 0;
         enemiesSpawned = 0;
@@ -305,7 +313,7 @@ public class EnemySpawner : MonoBehaviour
     public void MoreEnemiesOnField()
     {
         enemiesOnField++;
-        print("enemies onField: " + enemiesOnField);
+        //print("enemies onField: " + enemiesOnField);
     }
 
     public void ChangeEnemy()

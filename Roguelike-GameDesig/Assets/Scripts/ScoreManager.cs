@@ -366,8 +366,8 @@ public class ScoreManager : MonoBehaviour
                 }
             }
         }
-        print("upgrade 1 nº: " + upgradeRandomiser1);
-        print("upgrade 2 nº: " + upgradeRandomiser2);
+        //print("upgrade 1 nº: " + upgradeRandomiser1);
+        //print("upgrade 2 nº: " + upgradeRandomiser2);
         switch (upgradeRandomiser1)
         {
             case 0:
@@ -526,6 +526,7 @@ public class ScoreManager : MonoBehaviour
         upgrade11pos.position = defaultPos.position;
         upgrade12pos.position = defaultPos.position;
         upgrade13pos.position = defaultPos.position;
+        upgrade14pos.position = defaultPos.position;
 
     }
 
@@ -540,7 +541,7 @@ public class ScoreManager : MonoBehaviour
     public void AddWind()
     {
         wind = true;
-        print("I added wind");
+        //print("I added wind");
     }
     public void AddelEctricity()
     {
