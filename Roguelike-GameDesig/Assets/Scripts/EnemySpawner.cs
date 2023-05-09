@@ -275,7 +275,7 @@ public class EnemySpawner : MonoBehaviour
             }
             if(enemiesOnField <= 0)
             {
-               SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+               SceneManager.LoadScene("Max's Scene", LoadSceneMode.Single);
             }
         }
     }
