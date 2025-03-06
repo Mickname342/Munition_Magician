@@ -3,7 +3,7 @@
 
  Munition Magician is a wave based top-down shooter with roguelike lements. The Player has to complete 12 waves of enemies, but to help them they will be able to get an upgrade to their combat abilities every 3 waves.
 
-All of the code wa made by Mickname342. [Link to the itch.io page](https://mickname.itch.io/munition-macigian)
+All of the code was made by Mickname342. [Link to the itch.io page](https://mickname.itch.io/munition-macigian)
 
  ## Player Abilities 
  The player will be able to move with WASD, shoot with left click and place bombs with right click. For more information on player movement check the [PlayerMovement script](https://github.com/Mickname342/Munition_Magician/blob/main/Roguelike-GameDesig/Assets/Scripts/PlayerMovement.cs) annd the [Shooting script](https://github.com/Mickname342/Munition_Magician/blob/main/Roguelike-GameDesig/Assets/Scripts/Shooting.cs)
