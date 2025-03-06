@@ -26,7 +26,9 @@ All of the code was made by Mickname342. [Link to the itch.io page](https://mick
 
  The bomb will explode when the player hits it with a bullet. For more information on the bomb check the [Bomb script](https://github.com/Mickname342/Munition_Magician/blob/main/Roguelike-GameDesig/Assets/Scripts/ApplyWind.cs)
 
- ![Bomb1](https://github.com/Mickname342/Munition_Magician/blob/main/Images/Bomb.PNG) [Bomb2](https://github.com/Mickname342/Munition_Magician/blob/main/Images/Explosion.PNG)
+ ![Bomb1](https://github.com/Mickname342/Munition_Magician/blob/main/Images/Bomb.PNG) 
+ 
+ [Bomb2](https://github.com/Mickname342/Munition_Magician/blob/main/Images/Explosion.PNG)
 
  ## Waves
  At the beggining of the game the player will be able to choose between the four elements for their bullets and an upgarde for the playable character. The elements will not be randomised, but the upgrades will This is done by randomising 3 integers and then using a switch statement. For more information on the upgrade randomisation check the [ScoreManager script](https://github.com/Mickname342/Munition_Magician/blob/main/Roguelike-GameDesig/Assets/Scripts/ScoreManager.cs)
